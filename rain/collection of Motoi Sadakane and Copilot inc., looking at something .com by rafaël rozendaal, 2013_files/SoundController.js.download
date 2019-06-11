@@ -1,0 +1,20 @@
+(function(window){var SoundController={};SoundController.sounds={};SoundController.init=function(sounds,forced)
+{if(sounds)
+{for(var i=0;i<sounds.length;i++)
+{var item=sounds[i];var id=item.id;var params={};params.preload=item.preload==null?true:item.preload;params.autoplay=item.autoplay==null?false:item.autoplay;params.formats=item.formats==null?["ogg","mp3"]:item.formats;params.loop=item.loop==null?false:item.loop;SoundController.sounds[id]=new buzz.sound(id,params);if(params.autoplay)SoundController.sounds[id].play();}}}
+SoundController.buildEventHandler=function(id)
+{return function(e){console.log(id,e.type);};}
+SoundController.play=function(id,params)
+{if(SoundController.getMute())return;var sound=SoundController.sounds[id];if(sound)
+{sound.play();}
+else
+{if(!params)params={};params.autoplay=true;SoundController.sounds[id]=new buzz.sound(id,params);SoundController.sounds[id].play();}}
+SoundController.stop=function(id)
+{var sound=SoundController.sounds[id];if(sound)sound.stop();}
+SoundController.setVolume=function(id,volume)
+{var sound=SoundController.sounds[id];if(sound&&!isNaN(volume))sound.setVolume(volume);}
+SoundController.setMute=function(on)
+{if(on)buzz.all().mute();else buzz.all().unmute();SoundController.muted=on;}
+SoundController.getMute=function()
+{return SoundController.muted;}
+window.SoundController=SoundController;}(window));
