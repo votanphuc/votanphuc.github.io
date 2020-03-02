@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vo Tan Phuc | Résumé</title>
+</head>
+<style>
+    iframe {
+        width: 100%;
+        border: 2px solid #ccc;
+    }
+</style>
+</head>
+
+<body>
+    <iframe src=".\CV_VoTanPhuc_06022020.pdf" id="myIframe"></iframe>
+
+    <script>
+        var iframe = document.getElementById("myIframe");
+
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+
+</html>

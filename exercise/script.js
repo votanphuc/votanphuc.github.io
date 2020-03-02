@@ -40,7 +40,7 @@ function showCalendar(month, year) {
             }
 
             let cell = document.createElement("td");
-            let node = date;
+            let span = document.createElement("button");
             let cellText = document.createTextNode(node);
             date++;
 
@@ -67,4 +67,3 @@ function previous() {
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
 }
-
