@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tạo bảng, trộn dòng và cột</title>
+        
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+              
+            td {
+                border: 2px solid red;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            tr th {
+                background-color: red;
+                color: white;
+                text-align: center;
+                font-size: 15px;
+            }
+
+            .upperText {
+                text-transform: uppercase;
+            }
+
+            .th1 {
+                background-color: red;
+                color: white;
+                text-align: right;
+                vertical-align: middle;
+            }
+
+            .th2 {
+                background-color: pink;
+                color: red;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 800;
+                vertical-align: middle;
+            }
+
+            .textRed {
+                color: red;
+                font-size: large;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .cusImg {
+                width: auto;
+                height: auto;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <col width ="100"> <col width ="100"> <col width ="100"> <col width ="100">
+            <tr>
+                <td colspan="3" class="th1">Công nghệ gội đầu dưỡng tóc mới</td>
+                <td rowspan="3"> <img class="cusImg" src="./img/pic10.PNG" alt="Logo chai dau goi dau"/> </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="th2">Toả sáng cùng <span class="upperText">double rich</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b class="textRed">&#9633; San pham khuyen mai </b>
+                    <ul>
+                        <li>Dau goi abc Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta .</li>
+                    </ul>
+                    <b class="textRed">&#9633; Doi tuong tham gia </b>
+                    <ul>
+                        <li>Dau goi abc Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta .</li>
+                        <li>Dau goi abc Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta .</li>
+                    </ul>
+                </td>
+                <td colspan="2">
+                    <b class="textRed">&#9633; Cach thuc nhan giai</b>
+                    <ol>
+                        <li><b><i>Dau goi abc Lorem ipsum</i></b>, dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quae exercitationem nulla quo animi quidem natus fugit quibusdam assumenda sequi quos placeat consectetur</li>
+                        <li><b><i>Dau goi abc Lorem ipsum</i></b>, dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quae exercitationem nulla quo animi quidem natus fugit quibusdam assumenda sequi quos placeat consectetur</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>Tạo form và các điều khiển trên form</title>
+    <style>
+        .customHeader{
+            text-align: center;
+            color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #e0f9d9;
+            color: green;
+            width: 100%;
+        }
+            
+        td {
+            border: 1px solid blue;
+            text-align: left;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="customHeader">Phiếu đăng ký tham gia chương trình khuyến mãi</h2>
+    <form id="loginForm">
+        <table>
+            <tr>
+                <td><label>Họ và tên: </label></td>
+                <td><input type="text" name="userName" id="userNameInput" placeholder="Nhập họ và tên" ></td>
+            </tr>
+            <tr>
+                <td><label>Địa chỉ: </label></td>
+                <td><input type="text" name="address" id="addressInput" placeholder="Nhập địa chỉ" ></td>
+            </tr>
+            <tr>
+                <td><label>Số điện thoại: </label></td>
+                <td><input type="text" name="phone" id="phoneNo" placeholder="Nhập Số điện thoại" ></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính: </label></td>
+                <td>
+                    <input type="radio" id="nam" name="nam" value="Nam">
+                    <label for="nam">Nam</label>
+                    <input type="radio" id="nu" name="nu" value="Nam">
+                    <label for="nu">Nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Nghề nghiệp: </label></td>
+                <td>
+                    <select name="nghenghiep" id="nghenghiep">
+                        <option value="bacsi">Bac si</option>
+                        <option value="kysu">Ky su</option>
+                        <option value="giaovien">Giao vien</option>
+                        <option value="khac">Khac</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Chọn sản phẩm tham gia:: </label></td>
+                <td>
+                    <select name="sanpham" id="sanpham" size="4" multiple>
+                        <option value="kdr">Kem danh rang</option>
+                        <option value="bg">Bot giat</option>
+                        <option value="dgd">Dau goi dau</option>
+                        <option value="st">Sua tam</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Số nguoi du doan: </label></td>
+                <td><input type="text" name="dd" id="guessPp" placeholder="Nhập so nguoi du doan " ></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="textCenter"><input type="button" name="submit" value="Đồng ý" onclick="myFunction()"></td>
+            </tr>
+            <tr id="resultTr" hidden>
+                <td colspan="2" class="textCenter"><label type="text" name="userName" id="userNameResult" ></label></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function myFunction() {
+            // let resultTrElement = document.getElementById("resultTr");
+            // let hidden = resultTrElement.getAttribute("hidden"); 
+            // let inputValue = document.getElementById("userNameInput").value;
+
+            // if (inputValue == '') {
+            //     resultTrElement.setAttribute("hidden", "hidden");
+            // } else {
+            //     resultTrElement.removeAttribute("hidden");
+            // }
+
+            document.getElementById("resultTr").removeAttribute("hidden");
+            document.getElementById("userNameResult").innerHTML = "Bạn đã đang ký thành công!!";
+        }
+    </script>
+    
+</body>
+</html>

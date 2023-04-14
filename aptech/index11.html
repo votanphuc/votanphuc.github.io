@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title>Tạo form và các điều khiển trên form</title>
+    <style>
+        .customHeader{
+            text-align: center;
+            color: red;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #ccecff;
+        }
+            
+        td {
+            border: 1px solid #910000;
+            text-align: left;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="customHeader">Đăng nhập</h2>
+    <form id="loginForm">
+        <table>
+            <tr>
+                <td><label>Username: </label></td>
+                <td><input type="text" name="userName" id="userNameInput" placeholder="Nhập mã người dùng" ></td>
+            </tr>
+            <tr>
+                <td><label>Mật khẩu: </label></td>
+                <td><input type="password" name="password" id="passwordInput" placeholder="Nhập mật khẩu" ></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="textCenter"><input type="button" name="submit" value="Click me" onclick="myFunction()"></td>
+            </tr>
+            <tr id="resultTr" hidden>
+                <td colspan="2" class="textCenter"><label type="text" name="userName" id="userNameResult" ></label></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function myFunction() {
+            // let resultTrElement = document.getElementById("resultTr");
+            // let hidden = resultTrElement.getAttribute("hidden"); 
+            // let inputValue = document.getElementById("userNameInput").value;
+
+            // if (inputValue == '') {
+            //     resultTrElement.setAttribute("hidden", "hidden");
+            // } else {
+            //     resultTrElement.removeAttribute("hidden");
+            // }
+
+            document.getElementById("resultTr").removeAttribute("hidden");
+            document.getElementById("userNameResult").innerHTML = document.getElementById("userNameInput").value;
+        }
+    </script>
+    
+</body>
+</html>

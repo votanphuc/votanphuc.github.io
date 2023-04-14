@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index Page</title>
+</head>
+
+<body onload="loadBt()">
+    <h1>Danh mục bookmarks</h1>
+    <ul>
+        <li><a target="_blank" href="baigiang1.html">Bài giảng 1 - Giới thiệu các thẻ cơ bản</a></li>
+        <li><a target="_blank" href="bgnav.html">Bài giảng navbar - Giới thiệu nav</a></li>
+        <li><a target="_blank" href="cssBaiGiang.html">Bài giảng - Giới thiệu css internal</a></li>
+        <li><a target="_blank" href="cssBaiGiang2.html">Bài giảng - Giới thiệu css external</a></li>
+    </ul>
+    <button"><h1>Danh mục Bài tập</h1></button>
+    <ol id ="baitap">
+    </ol>
+    <a href="debai.html" target="_blank">Đề bài</a>
+    <script>
+        function loadBt(){
+            var baiTap = document.getElementById("baitap");
+            var renderString ="";
+            for(let i = 1; i <= 16; i++) {
+                renderString+=('<li><a target="_blank" href="index'+i+'.html">Bài '+i+'</a></li>');
+            }
+            baiTap.innerHTML= renderString;
+        }
+    </script>
+</body>
+
+</html>
+

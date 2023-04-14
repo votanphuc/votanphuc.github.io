@@ -1,0 +1,16 @@
+h1 {
+    color:rgba(0, 106, 255); 
+    font-size: 100px;   
+}
+
+.mauVang {
+    color:yellow; 
+}
+
+.mauDo {
+    color:red; 
+}
+
+#changeSize {
+    font-size: 50px;   
+}
