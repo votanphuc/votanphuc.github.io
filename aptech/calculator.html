@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="calculator.js"></script>
+
+    <style>
+        .showNumber {
+            height: 100px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 60px;
+            color: blue;
+            max-width: 100px;
+        }
+        input {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><input type="button" onclick="clearClick()" id="clear" value="X"></td>
+            <td colspan="3" class="showNumber"><label id="display"></label></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="numClick(7)" id="num7" value="7"></td>
+            <td><input type="button" onclick="numClick(8)" id="num8" value="8"></td>
+            <td><input type="button" onclick="numClick(9)" id="num9" value="9"></td>
+            <td><input type="button" onclick="symbolClick('/')" id="divideSymbol" value="/"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="numClick(4)" id="num4" value="4"></td>
+            <td><input type="button" onclick="numClick(5)" id="num5" value="5"></td>
+            <td><input type="button" onclick="numClick(6)" id="num6" value="6"></td>
+            <td><input type="button" onclick="symbolClick('*')" id="mulSymbol" value="*"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="numClick(1)" id="num1" value="1"></td>
+            <td><input type="button" onclick="numClick(2)" id="num2" value="2"></td>
+            <td><input type="button" onclick="numClick(3)" id="num3" value="3"></td>
+            <td><input type="button" onclick="symbolClick('-')" id="subSymbol" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="numClick('.')" id="dotSymbol" value="."></td>
+            <td><input type="button" onclick="numClick(0)" id="num0" value="0"></td>
+            <td><input type="button" onclick="equalClick()" id="equalsSymbol" value="="></td>
+            <td><input type="button" onclick="symbolClick('+')" id="plusSymbol" value="+"></td>
+        </tr>
+    </table>
+</body>
+</html>
