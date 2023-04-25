@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Armstrong</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="armstrong.js"></script>
+  
+</head>
+<body>
+    <h1>Hello World</h1>
+    <h4>Ai hỏi bộ trưởng trả lời? </h4>
+    <p class="questions">1. Giá xăng hiện nay cao hơn 25k là đúng hay sai? </p>
+    <input type="radio" id="yes" name="cau1" value="Đúng">
+    <label for="yes">Đúng</label><br>
+    <input type="radio" id="no" name="cau1" value="Sai">
+    <label for="no">Sai</label><br>
+
+    <p class="questions">2. Giá vàng hiện nay cao hơn giá xăng là đúng hay sai? </p>
+    <input type="radio" id="yes2" name="cau2" value="Đúng">
+    <label for="yes2">Đúng</label><br>
+    <input type="radio" id="no2" name="cau2" value="Sai">
+    <label for="no2">Sai</label><br>
+
+    <p class="questions">3. Quãng đường từ nhà tới trường = quãng đường từ trường về nhà là đúng hay sai? </p>
+    <input type="radio" id="yes3" name="cau3" value="Đúng">
+    <label for="yes3">Đúng</label><br>
+    <input type="radio" id="no3" name="cau3" value="Sai">
+    <label for="no3">Sai</label><br>
+
+    <input class="btn btn-warning custombtn" type="button" value="Submit" onclick="submit()">
+    <br>
+    <label class="resBT" id="resBT"></label>
+
+    <hr>
+    <pre>
+
+        Write a JavaScript code to accept a number from the user and check whether the number is armstrong or not. 
+    An armstrong number is a number whose sum of cubes of individual digit is same as the number itself. 
+    For example, 153 is an armstrong number, as the sum of
+              1^3
+            + 5^3
+            + 3^3
+            = 153.
+    </pre>
+    <input id="numInput" type="text" placeholder="Nhap gia tri de kiem tra Amstrong number"> 
+    <input id="checkBtn" type="button" value="Kiem tra" onclick="checkArmstrong()">
+    <label id="res"></label>
+    
+    <pre>
+        Write a JavaScript code to create an array that store names of 10 students in it. 
+        Then, display the names of the students in an alphabetic order from the array. 
+        Also, use the for..in loop to display the name of the students from the array.
+    </pre>
+    <input class ="stds" type="text" placeholder="Input student name 1"> <br>
+    <input class ="stds" type="text" placeholder="Input student name 2"> <br>
+    <input class ="stds" type="text" placeholder="Input student name 3"> <br>
+    <input class ="stds" type="text" placeholder="Input student name 4"> <br>
+    <input class ="stds" type="text" placeholder="Input student name 5"> <br>
+    <input id="checkBtnB2" type="button" value="Kiem tra" onclick="sortAndShow()">
+    <label id="resB2"></label>
+
+
+
+
+</body>
+</html>
