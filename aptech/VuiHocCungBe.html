@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./VuiHocCungBe.js"></script>
+    <title>Vui học cùng bé!</title>
+
+    <style>
+        div {
+            /*border: solid blue 1px;*/
+        }
+
+        .brandName {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .mHeader {
+            padding-bottom: 50px;
+        }
+
+        .res1 {
+            padding: 0px 50px;
+        }
+
+        .row {
+            padding: 5px;
+        }
+
+        .lego {
+            text-align: justify;
+            display: block;
+        }
+
+        .lft {
+            float: left;
+        }
+
+        .rft {
+            float: right;
+        }
+
+        .footer {
+            padding: 25px;
+        }
+        body{
+            margin-bottom: 70px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row mHeader" id="mHeader">
+        <div class="col-sm-8">
+            <img src="./img/unnamed.jpg" width="80" alt="Logo trang web vui hoc cung be">
+            <span class="brandName">VUI HỌC CÙNG BÉ</span>
+        </div>
+        <div class="col-sm-4">
+            <div class="topnav-right">
+                <a href="#personalInfo">Thông tin</a> |
+                <a href="#multimedia">Học nhạc</a> |
+                <a href="#math">Học toán</a> |
+                <a href="#question">Học văn</a> |
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" id="personalInfo">
+        <h2>Thông tin cá nhân</h2>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="name">Họ tên: </label>
+                </div>
+                <div class="col-sm-7">
+                    <input class="input-group input-group-sm" id="name" type="text" placeholder="Nhập họ tên">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="bd">Ngày tháng năm sinh: </label>
+                </div>
+                <div class="col-sm-7">
+                    <input class="input-group input-group-sm" id="bd" type="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="phone">Số điện thoại: </label>
+                </div>
+                <div class="col-sm-7">
+                    <input class="input-group input-group-sm" id="phone" type="text"
+                           placeholder="Nhập số điện thoại">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <label>Giới tính: </label>
+                </div>
+                <div class="col-sm-7">
+                    <select id="gt" class="form-select form-select-sm" aria-label=".form-select-sm">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="name">Sở thích: </label>
+                </div>
+                <div class="col-sm-7 d-flex justify-content-between">
+                    <div>
+                        <input type="checkbox" id="thethao" class="sothich" value="Thể thao">
+                        <label for="thethao">Thể thao</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="docsach" class="sothich" value="Đọc sách">
+                        <label for="docsach">Đọc sách</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="khampha" class="sothich" value="Khám phá">
+                        <label for="khampha">Khám phá</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ngu" class="sothich" value="Ngủ">
+                        <label for="ngu">Ngủ</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="mau">Chọn màu nền: </label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="color" id="mau" class="mau" value="#ffffff">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 offset-sm-9">
+                    <input type="submit" id="submit" class="btn btn-danger w-100" value="Submit" onclick="showInfo()">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader">Kết quả: </h5>
+            <label class="res1" id="res1"></label>
+        </div>
+    </div>
+
+    <div class="row" id="multimedia">
+        <h2>Bé học Multimedia: </h2>
+        <div class="col-sm-8">
+            <video src="http://techslides.com/demos/sample-videos/small.mp4" controls width="100%"></video>
+        </div>
+        <div class="col-sm-4">
+            <span class="lego">
+                &emsp; Lego (tiếng Đan Mạch: [ˈleːɡo];đọc cách điệu là LEGO) là một dòng sản phẩm đồ chơi lắp ráp thuộc Tập đoàn Lego có trụ sở tại Billund, Đan Mạch.
+                Cái tên "Lego" là viết tắt hai chữ cái đầu của hai từ leg godt, có nghĩa là "chơi hay".<br>
+                &emsp; Sản phẩm chủ lực của công ty, Lego, bao gồm các viên gạch nhiều màu sắc được lắp ráp với nhau đi kèm với một loạt các răng ăn khớp hình tròn,
+                các nhân vật tí hon được gọi là minifigure, và nhiều bộ phận khác. Những miếng ghép Lego có thể được lắp ráp và kết nối theo nhiều cách khác nhau
+                để xây dựng nên nhiều đồ vật như: xe cộ, các tòa nhà cao tầng và con người - có thể hoạt động,.... Bất cứ thứ gì đều có thể tháo rời sau khi đã lắp
+                ráp, và các mảnh ghép sẽ được dùng để tạo ra những đồ vật khác.
+            </span>
+        </div>
+    </div>
+
+    <div class="row" id="math">
+        <h2>Bé học Toán: </h2>
+        <div class="col-sm-8">
+            <table>
+                <tr>
+                    <td><label for="num1">Số thứ nhất: </label></td>
+                    <td><input type="number" id="num1" placeholder="Nhập số thứ nhất"></td>
+                    <td rowspan="2">
+                        <input type="button" class="btn btn-primary btn-lg w-100 p-3" value="Tính"
+                               onclick="calculate()">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="num2">Số thứ hai: </label></td>
+                    <td><input type="number" id="num2" placeholder="Nhập số thứ hai"></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader2">Kết quả: </h5>
+            <label class="res" id="res2"></label>
+        </div>
+    </div>
+
+    <div class="row" id="question">
+        <h2>Bé học Văn: </h2>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Ai hỏi bộ trưởng trả lời? </h4>
+                    <p class="questions">1. Giá xăng hiện nay cao hơn 25k là đúng hay sai? </p>
+                    <input type="radio" id="yes" name="cau1" value="Đúng">
+                    <label for="yes">Đúng</label><br>
+                    <input type="radio" id="no" name="cau1" value="Sai">
+                    <label for="no">Sai</label><br><br>
+
+                    <p class="questions">2. Giá vàng hiện nay cao hơn giá xăng là đúng hay sai? </p>
+                    <input type="radio" id="yes2" name="cau2" value="Đúng">
+                    <label for="yes2">Đúng</label><br>
+                    <input type="radio" id="no2" name="cau2" value="Sai">
+                    <label for="no2">Sai</label><br><br>
+
+                    <p class="questions">3. Quãng đường từ nhà tới trường = quãng đường từ trường về nhà là đúng hay
+                        sai? </p>
+                    <input type="radio" id="yes3" name="cau3" value="Đúng">
+                    <label for="yes3">Đúng</label><br>
+                    <input type="radio" id="no3" name="cau3" value="Sai">
+                    <label for="no3">Sai</label><br>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-6">
+                        <input class="btn btn-warning w-100" type="button" value="Trả lời" onclick="answerQuestion()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader3">Kết quả: </h5>
+            <label class="res" id="res3"></label>
+        </div>
+    </div>
+    <div class="footer navbar fixed-bottom navbar-light bg-light">
+        <span class="lft">
+            <a href="#personalInfo">Thông tin</a>
+            <a href="#multimedia">Học nhạc</a>
+            <a href="#math">Học toán</a>
+            <a href="#question">Học văn</a>
+        </span>
+        <span class="rft">
+            Created by ABC
+            <a href="#mHeader">Top</a>
+        </span>
+    </div>
+
+
+</div>
+</body>
+
+</html>
