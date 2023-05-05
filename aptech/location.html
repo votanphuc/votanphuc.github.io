@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geolocation API</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                alert("Geolocation is not supported in this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude:' + position.coords.longitude);
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value=" Display Location" onClick="getLocation()" />
+</body>
+
+</html>

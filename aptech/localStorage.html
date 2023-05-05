@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Support for Web Storage Store</title>
+    <script>
+        
+        function saveName(){
+            let tenInput = document.getElementById("mName").value;
+            localStorage.setItem('nameKey', tenInput);    
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Local Storage to store</h1>
+    <input type="text" placeholder="Nhap ten" id="mName"> <br>
+    <input type="button" value="Save name to storage" onclick="saveName()"><br>
+    
+</body>
+
+</html>

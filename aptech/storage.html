@@ -10,8 +10,9 @@
                 //alert("Your browser supports Web Storage");
                // return;
 
-                sessionStorage.setItem('name', 'Sarah');
-                alert('The name is: ' + sessionStorage.getItem('name'));
+                sessionStorage.setItem('name', 'Phuc');
+                sessionStorage.setItem('nickName', 'Pea');
+                alert('The name is: ' + sessionStorage.getItem('nickName'));
             } else {
                 alert("Your browser does not support Web Storage");
             }
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-    <input type="button" value="Check WebStorage" onclick="checkSupport();">
+    <input type="button" value="Check WebStorage" onclick="checkSupport();"><br>
 </body>
 
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Support for Web Storage</title>
+    <script>
+
+        function saveName(){
+            let key = document.getElementById("mKey").value;
+            let value = document.getElementById("mValue").value;
+            sessionStorage.setItem(key, value);    
+        }
+
+        function getName() {
+            let key = document.getElementById("gKey").value;
+           alert('The name is: ' + sessionStorage.getItem(key));
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Session Storage</h1>
+    <input type="text" placeholder="Nhap key" id="mKey"> <br>
+  
+    <input type="text" placeholder="Nhap value" id="mValue"> <br>
+    <input type="button" value="Save name to storage" onclick="saveName()"><br>
+
+    <input type="text" placeholder="Nhap key" id="gKey"> <br>
+    <input type="button" value="Get name from storage" onclick="getName()"><br>
+</body>
+
+</html>
