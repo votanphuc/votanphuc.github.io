@@ -14,7 +14,7 @@ function showInfo() {
     let gt = document.getElementById("gt");
     res.innerHTML += "<br/>Giới tính: " + gt.value;
 
-    let sothich = document.getElementsByClassName("sothich"); // lấy toàn bộ check box với class sothic
+    let sothich = document.getElementsByClassName("sothich"); // lấy toàn bộ check box với class sothich
     res.innerHTML += "<br/>Sở thích: "
     for (let i = 0; i < sothich.length; i++) {
         if (sothich[i].checked === true) { // kiểm tra xem thằng nào dc check thì sẽ hiện ra thẻ res1
@@ -33,19 +33,19 @@ function calculate() {
     let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
     res.innerHTML = "";
 
-    let num1 = document.getElementById("num1").value;
-    let num2 = document.getElementById("num2").value;
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
 
     let cong = num1 + num2;
     res.innerHTML += "Phép cộng: " + num1 + "+" + num2 + "=" + cong;
 
-    let tru = num1 + num2;
+    let tru = num1 - num2;
     res.innerHTML += "<br/> Phép trừ: " + num1 + "-" + num2 + "=" + tru;
 
-    let nhan = num1 + num2;
+    let nhan = num1 * num2;
     res.innerHTML += "<br/> Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
 
-    let chia = num1 + num2;
+    let chia = num1 / num2;
     res.innerHTML += "<br/> Phép chia: " + num1 + "/" + num2 + "=" + chia;
 
     let mu = num1;
@@ -53,7 +53,6 @@ function calculate() {
         mu *= num1;
     }
     res.innerHTML += "<br/> Phép mũ: " + num1 + "^" + num2 + "=" + mu;
-
 }
 
 function answerQuestion() {

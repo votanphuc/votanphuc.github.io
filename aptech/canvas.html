@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title> Canvas </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        canvas {
+            border: medium double red;
+            margin: 4px
+        }
+    </style>
+    <script>
+        //window.onload = loadCanvas();
+
+        function drawRectango() {
+            var canvas = document.getElementById('mCanvas');
+            var ctext = canvas.getContext('2d');
+            ctext.beginPath();
+
+            var x = parseInt(document.getElementById("numX").value);
+            var y = parseInt(document.getElementById("numY").value);
+            var d = parseInt(document.getElementById("numA").value);
+            var r = parseInt(document.getElementById("numB").value);
+            ctext.rect(x, y, d, r); // ve hinh chu nhat            
+            ctext.fillStyle = "DarkBlue"; // chon mau nen
+            ctext.fill(); // apply
+
+            ctext.strokeStyle = "green"; //chon mau cho duong vien
+            ctext.stroke(); //apply
+        };
+
+        function drawLine() {
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            ctext.beginPath();
+
+            var x1 = parseInt(document.getElementById("numX").value);
+            var y1 = parseInt(document.getElementById("numY").value);
+            var x2 = parseInt(document.getElementById("numA").value);
+            var y2 = parseInt(document.getElementById("numB").value);
+
+            ctext.moveTo(x1, y1); // di den diem bat dau
+            ctext.lineTo(x2, y2); // ve den diem can toi
+            ctext.lineTo(300, 10); // ve den diem can toi
+           
+            ctext.lineWidth = 5; // do day cua duong ve
+
+            ctext.strokeStyle = "yellow"; 
+            ctext.stroke();
+
+        }
+
+        function drawCircle() {
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            ctext.beginPath(); 
+
+            var ctrX = canvas.width / 2;
+            var ctrY = canvas.height / 2;
+            var radius = 100;
+          
+            ctext.arc(ctrX, ctrY, radius, 0, 2 * Math.PI, false);
+           
+            ctext.fillStyle = "DarkOrchid";
+            ctext.fill();
+
+            ctext.lineWidth = 4;
+            ctext.strokeStyle = "black";
+            ctext.stroke();
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="500" height="350" id="mCanvas"></canvas>
+    <br>
+    <input type="number" id="numX" placeholder="Nhap x" value="10">
+    <input type="number" id="numY" placeholder="Nhap y" value="10">
+    <br>
+    <input type="number" id="numA" placeholder="Nhap a" value="200">
+    <input type="number" id="numB" placeholder="Nhap b" value="200">
+    <br>
+    <input type="button" value="Click to draw Rect" onclick="drawRectango()">
+    <br>
+    <input type="button" value="Click to draw Line" onclick="drawLine()">
+    <br>
+    <input type="button" value="Click to draw Cric" onclick="drawCircle()">
+</body>
+
+</html>

@@ -14,7 +14,7 @@
 
     <style>
         div {
-            /*border: solid blue 1px;*/
+            border: solid grey 0.5px;
         }
 
         .brandName {
@@ -60,8 +60,9 @@
         .footer {
             padding: 25px;
         }
+
         body{
-            margin-bottom: 70px;
+            margin-bottom: 100px;
         }
     </style>
 </head>
@@ -80,7 +81,6 @@
                 <a href="#math">Học toán</a> |
                 <a href="#question">Học văn</a> |
             </div>
-
         </div>
     </div>
 
@@ -108,7 +108,7 @@
                     <label for="phone">Số điện thoại: </label>
                 </div>
                 <div class="col-sm-7">
-                    <input class="input-group input-group-sm" id="phone" type="text"
+                    <input class="input-group input-group-sm" id="phone" type="number"
                            placeholder="Nhập số điện thoại">
                 </div>
             </div>
@@ -203,7 +203,6 @@
                     <td><input type="number" id="num2" placeholder="Nhập số thứ hai"></td>
                 </tr>
             </table>
-
         </div>
         <div class="col-sm-4">
             <h5 id="resHeader2">Kết quả: </h5>
@@ -237,10 +236,10 @@
                     <label for="no3">Sai</label><br>
 
                 </div>
-                <div class="row">
-                    <div class="col-sm-3 offset-sm-6">
-                        <input class="btn btn-warning w-100" type="button" value="Trả lời" onclick="answerQuestion()">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 offset-sm-6">
+                    <input class="btn btn-warning w-100" type="button" value="Trả lời" onclick="answerQuestion()">
                 </div>
             </div>
         </div>
@@ -249,6 +248,7 @@
             <label class="res" id="res3"></label>
         </div>
     </div>
+
     <div class="footer navbar fixed-bottom navbar-light bg-light">
         <span class="lft">
             <a href="#personalInfo">Thông tin</a>
@@ -261,7 +261,6 @@
             <a href="#mHeader">Top</a>
         </span>
     </div>
-
 
 </div>
 </body>
