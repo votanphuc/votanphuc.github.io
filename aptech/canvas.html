@@ -33,37 +33,47 @@
         };
 
         function drawLine() {
+            var x1 = parseInt(document.getElementById("numX").value);
+            var y1 = parseInt(document.getElementById("numY").value);
+            var x2 = parseInt(document.getElementById("numA").value);
+            var y2 = parseInt(document.getElementById("numB").value); 
+
+            drawLine2(x1, y1, x2, y2);
+        }
+
+        function drawLine2(x1, y1, x2, y2) {
             var canvas = document.getElementById("mCanvas");
             var ctext = canvas.getContext("2d");
             ctext.beginPath();
 
-            var x1 = parseInt(document.getElementById("numX").value);
-            var y1 = parseInt(document.getElementById("numY").value);
-            var x2 = parseInt(document.getElementById("numA").value);
-            var y2 = parseInt(document.getElementById("numB").value);
-
             ctext.moveTo(x1, y1); // di den diem bat dau
             ctext.lineTo(x2, y2); // ve den diem can toi
-            ctext.lineTo(300, 10); // ve den diem can toi
-           
-            ctext.lineWidth = 5; // do day cua duong ve
+            // ctext.lineTo(300, 10); // ve den diem can toi
 
-            ctext.strokeStyle = "yellow"; 
+            ctext.lineWidth = 3; // do day cua duong ve
+
+            ctext.strokeStyle = "yellow";
             ctext.stroke();
-
+        }
+        
+        function drawRhombus() {
+            drawLine2(50, 10, 70, 40);
+            drawLine2(70, 40, 50, 70);
+            drawLine2(50, 70, 30, 40);
+            drawLine2(30, 40, 50, 10);
         }
 
         function drawCircle() {
             var canvas = document.getElementById("mCanvas");
             var ctext = canvas.getContext("2d");
-            ctext.beginPath(); 
+            ctext.beginPath();
 
             var ctrX = canvas.width / 2;
             var ctrY = canvas.height / 2;
             var radius = 100;
-          
+
             ctext.arc(ctrX, ctrY, radius, 0, 2 * Math.PI, false);
-           
+
             ctext.fillStyle = "DarkOrchid";
             ctext.fill();
 
@@ -71,11 +81,56 @@
             ctext.strokeStyle = "black";
             ctext.stroke();
         }
+
+        function drawImage() {
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            var imgObj = new Image();
+            imgObj.onload = function () {
+                //	ctext.drawImage(imgObj, x, y, w, h);
+                ctext.drawImage(imgObj, 30, 20);
+            };
+            imgObj.src = "./img/ggicon.png";
+        };
+
+        function drawText() {
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            ctext.font = "italic 30pt Calibri";
+            ctext.fillStyle = "MediumVioletRed";
+            ctext.fillText("Welcome to HTML5!", 40, 100);
+        };
+
+        function drawTextStroke() {
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            var x = 80;
+            var y = 110;
+            ctext.font = "40pt Calibri";
+            ctext.lineWidth = 2;
+            // stroke color
+            ctext.strokeStyle = "Brown";
+            ctext.strokeText("HTML5", x, y);
+        };
+
+        function clearCanvas() {
+           // let text = "Ban co chac muon xoa.";
+          //  if (confirm(text) == true) {
+                var canvas = document.getElementById('mCanvas');
+                var ctext = canvas.getContext('2d');
+                ctext.beginPath();
+
+                ctext.rect(0, 0, 800, 500); // ve hinh chu nhat            
+                ctext.fillStyle = "white"; // chon mau nen
+                ctext.fill(); // apply
+          //  }
+        };
+
     </script>
 </head>
 
 <body>
-    <canvas width="500" height="350" id="mCanvas"></canvas>
+    <canvas width="800" height="500" id="mCanvas"></canvas>
     <br>
     <input type="number" id="numX" placeholder="Nhap x" value="10">
     <input type="number" id="numY" placeholder="Nhap y" value="10">
@@ -88,6 +143,16 @@
     <input type="button" value="Click to draw Line" onclick="drawLine()">
     <br>
     <input type="button" value="Click to draw Cric" onclick="drawCircle()">
+    <br>
+    <input type="button" value="Draw Image" onclick="drawImage()">
+    <br>
+    <input type="button" value="Draw Text" onclick="drawText()">
+    <br>
+    <input type="button" value="Draw Stroke" onclick="drawTextStroke()">
+    <br>
+    <input type="button" value="Clear" onclick="clearCanvas()">
+    <br>
+    <input type="button" value="Draw Rhombus" onclick="drawRhombus()">
 </body>
 
 </html>
