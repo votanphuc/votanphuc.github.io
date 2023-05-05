@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Support for Web Storage</title>
+    <script>
+        function checkSupport() {
+            if (('sessionStorage' in window)
+                && window['sessionStorage'] !== null) {
+                //alert("Your browser supports Web Storage");
+               // return;
+
+                sessionStorage.setItem('name', 'Sarah');
+                alert('The name is: ' + sessionStorage.getItem('name'));
+            } else {
+                alert("Your browser does not support Web Storage");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Check WebStorage" onclick="checkSupport();">
+</body>
+
+</html>
