@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./Exam.js"></script>
+    <title>VÕ TẤN PHÚC</title>
+
+    <style>
+        .brandName {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: purple
+        }
+
+        .mHeader {
+            padding-bottom: 50px;
+        }
+
+        .res1 {
+            padding: 0px 50px;
+        }
+
+        .row {
+            padding: 5px;
+        }
+
+        .lft {
+            float: left;
+        }
+
+        .rft {
+            float: right;
+        }
+
+        .footer {
+            padding: 25px;
+        }
+
+        body {
+            margin-bottom: 100px;
+        }
+
+        .sbmt1 {
+            background-color: #FFC0CB;
+            color: white;
+        }
+
+        .ws {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mHeader" id="mHeader">
+            <div class="col-sm-8">
+                <img src="./aptechlg.png" height="100" alt="Logo trang web vui hoc cung be">
+                <span class="brandName">0 - VÕ TẤN PHÚC</span>
+            </div>
+            <div class="col-sm-4">
+                <div class="topnav-right">
+                    <a href="#info">info</a> |
+                    <a href="#math">math</a> |
+                    <a href="#colorTheme">theme</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="personalInfo">
+            <h2>Informations</h2>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="name">Họ tên: </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input class="input-group input-group-sm" id="name" type="text" placeholder="Nhập họ tên">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="phone">Số điện thoại: </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input class="input-group input-group-sm" id="phone" type="number"
+                            placeholder="Nhập số điện thoại">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="bd">Ngày tháng năm sinh: </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input class="input-group input-group-sm" id="bd" type="date">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label>Giới tính: </label>
+                    </div>
+                    <div class="col-sm-7">
+                        <select id="gt" class="form-select form-select-sm" aria-label=".form-select-sm">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="name">Tình trạng hôn nhân: </label>
+                    </div>
+                    <div class="col-sm-7 d-flex">
+                        <input type="radio" id="single" name="status" value="Single">
+                        <label for="single">Single</label><br>
+                        <input type="radio" id="married" name="status" value="Married">
+                        <label for="married">Married</label><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-9">
+                        <input type="submit" id="submit" class="btn w-100 sbmt1" value="Submit" onclick="showInfo()">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h5 id="resHeader">Kết quả: </h5>
+                <label class="res1" id="res1"></label>
+            </div>
+        </div>
+
+        <div class="row" id="math">
+            <h2>Mathematics: </h2>
+            <div class="col-sm-4">
+                <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+                <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+                <input type="button" class="btn btn-primary btn-lg ws" value="Cộng" onclick="cong()">
+                <br>
+                <input type="button" class="btn btn-secondary btn-lg ws" value="Trừ" onclick="tru()">
+                <br>
+                <input type="button" class="btn btn-success btn-lg ws" value="Nhân" onclick="nhan()">
+                <br>
+                <input type="button" class="btn btn-info btn-lg ws" value="Chia" onclick="chia()">
+                <br>
+                <input type="button" class="btn btn-danger btn-lg ws" value="Mũ" onclick="mu()">
+                <br>
+                <input type="button" class="btn btn-dark btn-lg ws" value="Số nguyên tố" onclick="sont()">
+                <br>
+            </div>
+            <div class="col-sm-8">
+                <h5 id="resHeader2">Kết quả: </h5>
+                <label class="res" id="res2"></label>
+            </div>
+        </div>
+
+        <div class="row" id="colorTheme">
+            <h2>Theme: </h2>
+            <div class="col-sm-12">
+                <input type="color" name="color" id="color">
+                <input type="button" value="Đổi màu nền" onclick="changebackground()">
+            </div>
+        </div>
+
+        <div class="footer navbar fixed-bottom navbar-light bg-light">
+            <span class="lft">
+                <a href="#info">info</a>
+                <a href="#math">math</a>
+                <a href="#colorTheme">theme</a>
+            </span>
+            <span class="rft">
+                Created by Phuc Vo
+                <a href="#mHeader">Top</a>
+            </span>
+        </div>
+
+    </div>
+</body>
+
+</html>
