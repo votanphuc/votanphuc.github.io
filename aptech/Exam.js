@@ -41,6 +41,28 @@ function tru() {
     res.innerHTML += "Phép trừ: " + num1 + "-" + num2 + "=" + tru;
 }
 
+function nhan() {
+    let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let nhan = num1 * num2;
+    res.innerHTML += "Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
+}
+
+function chia() {
+    let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let chia = num1 / num2;
+    res.innerHTML += "Phép chia: " + num1 + "/" + num2 + "=" + chia;
+}
+
 function mu() {
     let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
     res.innerHTML = "";
@@ -78,28 +100,6 @@ function isPrime(n) {
             return false;
 
     return true;
-}
-
-function nhan() {
-    let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
-    res.innerHTML = "";
-
-    let num1 = parseInt(document.getElementById("num1").value);
-    let num2 = parseInt(document.getElementById("num2").value);
-
-    let nhan = num1 * num2;
-    res.innerHTML += "Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
-}
-
-function chia() {
-    let res = document.getElementById("res2"); // lấy thẻ theo id res2 để chuẩn bị in ra kết quả
-    res.innerHTML = "";
-
-    let num1 = parseInt(document.getElementById("num1").value);
-    let num2 = parseInt(document.getElementById("num2").value);
-
-    let chia = num1 / num2;
-    res.innerHTML += "Phép chia: " + num1 + "/" + num2 + "=" + chia;
 }
 
 function changebackground() {
