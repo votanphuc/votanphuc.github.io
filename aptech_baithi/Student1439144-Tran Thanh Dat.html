@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Final Exam</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    .st1:hover {
+        text-decoration: underline;
+        color: #5f00cb;
+    }
+
+    .btnst {
+        color: black;
+        background-color: #8DEEEE;
+        font-size: 30px;
+    }
+
+    .btn2st {
+        width: 100px;
+    }
+</style>
+
+<body class="container">
+    <header>
+        <div class="row border pt-2">
+            <div class="col-7 ">
+                <img src="aptechlg.png" alt="" height="80px">
+                <span style="font-size: 40px; color: red; font-weight: bold;">Student1439144</span>
+            </div>
+            <div class="col-5">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link st1" href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link st1" href="#">Math</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link st1" href="#">Theme</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="row">
+        <div class="col-6">
+            <h1>Products</h1>
+
+
+            <label for="name">Tên sản phẩm:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+            <label class="mt-2" for="quantity">Số lượng:</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity">
+            <label class="mt-2" for="price">Giá thành:</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+            <label class="mt-2">Khuyến mãi:</label><br>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" name="km" id="co" value="Có">
+                <label class="custom-control-label" for="co">Có</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" name="km" id="khong" value="Không">
+                <label class="custom-control-label" for="khong">Không</label>
+            </div> <br>
+            <button type="submit" id="submit" value="submit" class="btn btn-primary my-2 float-right btnst"
+                onclick="getInfo()">Submit</button>
+
+
+        </div>
+        <div class="col-6 pt-2">
+            <h5 id="resHeader">Results: </h5>
+            <label class="res1" id="res1"></label>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-4">
+            <h1>Mathematics </h1>
+            <label class="mt-2" for="numa">Number A:</label>
+            <input type="number" class="form-control" id="numa" placeholder="Enter number A" name="numa">
+            <label class="mt-2" for="numb">Number B:</label>
+            <input type="number" class="form-control" id="numb" placeholder="Enter number B" name="numb">
+            <button type="submit" id="submit" value="submit" class="btn btn-primary btn2st"
+                onclick="getSum()">Cộng</button><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-secondary btn2st"
+                onclick="getSub()">Trừ</button><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-success btn2st"
+                onclick="getMul()">Nhân</button><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-info btn2st"
+                onclick="getDiv()">Chia</button><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-danger btn2st"
+                onclick="getSqr()">Mũ</button><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-dark btn2st" onclick="isBS()">Bội
+                Số</button>
+        </div>
+        <div class="col-8 pt-2">
+            <h5 id="resHeader2 ">Results: </h5>
+            <label class="res2" id="res2"></label>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-12" id="res3">
+            <h1>Theme</h1>
+            <label for="mau">Đổi màu nền: </label>
+            <input type="color" id="mau" class="mau" value="#ffffff"><br>
+            <button type="submit" id="submit" value="submit" class="btn btn-warning my-2"
+                onclick="getColor()">Đổi màu nền</button>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+        function getInfo() {
+            var res = document.getElementById("res1");
+            if (res.innerHTML != "") {
+                res.innerHTML = "";
+            } else {
+                res.innerHTML = "";
+
+                var ten = document.getElementById("name");
+                res.innerHTML += "Họ tên: " + ten.value;
+
+                var price = document.getElementById("price");
+                res.innerHTML += "<br/>Giá thành: " + price.value;
+
+                var quantity = document.getElementById("quantity");
+                res.innerHTML += "<br/>Số lượng: " + quantity.value;
+
+                let km = document.getElementsByName("km");
+                res.innerHTML += "<br/>Khuyến mãi: "
+                var tong = 0;
+                for (let i = 0; i < km.length; i++) {
+                    if (km[i].checked === true) {
+                        res.innerHTML += km[i].value + "  ";
+                        if (km[i].value.localeCompare("Có") == 0) {
+                            tong = parseInt(quantity.value) * parseInt(price.value) * 0.9;
+                        } else {
+                            tong = parseInt(quantity.value) * parseInt(price.value )
+                        }
+                    }
+                }
+                res.innerHTML += "<br/>Thành tiền: " + tong;
+            }
+        }
+
+        function getSum() {
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+
+            let sum = numa + numb;
+            res2.innerHTML += "Sum: " + numa + "+" + numb + "=" + sum;
+        }
+
+        function getSub() {
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+
+            let sum = numa - numb;
+            res2.innerHTML += "Minus: " + numa + "-" + numb + "=" + sum;
+        }
+
+        function getMul() {
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+
+            let sum = numa * numb;
+            res2.innerHTML += "Multiply: " + numa + "*" + numb + "=" + sum;
+        }
+
+        function getDiv() {
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+
+            let sum = numa / numb;
+            res2.innerHTML += "Divide: " + numa + "/" + numb + "=" + sum;
+        }
+
+        function getSqr() {
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+
+            let sum = Math.pow(numa, numb);
+            res2.innerHTML += "Pow: " + numa + "^" + numb + "=" + sum;
+        }
+
+        function getColor() {
+            var res = document.getElementById("res3");
+            let maunen = document.getElementById("mau");
+            res.style.backgroundColor = maunen.value; 
+
+        }
+
+        function isBS(){
+            let res2 = document.getElementById("res2");
+            res2.innerHTML = "";
+            let numa = parseInt(document.getElementById("numa").value);
+            let numb = parseInt(document.getElementById("numb").value);
+            if(numa % numb == 0){
+                res2.innerHTML += "a = " + numa + " là bội số của " + "b = " + numb;
+            } else {
+                res2.innerHTML += "a = " + numa + " không phải là bội số của " + "b = " + numb;
+            }
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

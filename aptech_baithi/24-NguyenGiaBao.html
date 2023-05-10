@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var inp= document.getElementById("submit");
+            function show(){
+            
+            //document.getElementById("kq").innerHTML="";
+            var kq= document.getElementById("kq");
+            var ten= document.getElementById("ten").value;
+            var sl= document.getElementById("sl").value;
+            var gia=document.getElementById("gia").value;
+            var km=document.getElementById("km").value;
+            if(ten==""||sl==""||gia==""){
+                kq.innerHTML="Xin mời điền đủ thông tin!";
+                return 0;
+            }
+            kq.innerHTML="Tên sản phẩm: "+ten;
+            kq.innerHTML+="<br>Số lượng: "+sl;
+            kq.innerHTML+="<brGiá thành: "+gia;
+            kq.innerHTML+="<br>Khuyến mãi: "+km;
+            var tt=0;
+            if( km=="Có"){
+               tt= parseInt(sl*gia)*90/100; 
+            } else{
+                tt= parseInt(sl*gia);
+            }
+            kq.innerHTML+="<br>Thành tiền: "+tt+"vnđ";
+        }
+        function cong(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            let sum= parseInt(a) + parseInt(b);
+            toan.innerHTML="a+b= " +sum ;
+        }
+        function tru(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            toan.innerHTML="a-b= "+ parseInt(a-b);
+        }
+        function nhan(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            toan.innerHTML="a*b= "+ parseInt(a*b);
+        }
+        function chia(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            math.innerHTML="a/b= "+ parseFloat(a/b);
+        }
+        function mu(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            toan.innerHTML="a^b= "+ parseFloat(a**b);
+        }
+        function boiso(){
+            var toan= document.getElementById("math");
+            var a=document.getElementById("inpa").value;
+            var b= document.getElementById("inpb").value;
+            if(a=="" || b==""){
+                toan.innerHTML="Xin mời nhập 2 số a và b";
+                return 0;
+            }
+            if ( a%b==0 ){
+                toan.innerHTML=a+ " là bội số của "+b;
+            }else{
+                toan.innerHTML=a+ " không là bội số của "+b;
+            }
+        }
+        function change(){
+            var cl=document.getElementById("cl").value;
+            var theme= document.getElementById("theme");
+            theme.style.backgroundColor= cl;
+        }
+        // inp.onclick= function(){
+        //     document.getElementById("kq").innerHTML="";
+        // }
+    </script>
+    <style>
+        label{
+            text-align:left;
+        }
+        .thenav{
+            text-align: right;
+        }
+        #title{
+            font: 40, bold, red;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            text-decoration:underline 0.5px;
+            color: #5f00cb;
+        }
+        input, select, button{
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        #submit{
+            width: 35%;
+            background-color: #8DEEEE;
+            color: black;
+            font-size: 30px;
+            vertical-align: middle;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="./img/aptechlg.png" alt="" style="height: 80px;">
+            </div>
+            <div class="col-sm-9">
+                <div class="thenav">
+                    <a href="#">product|</a>
+                    <a href="#">math|</a>
+                    <a href="#">theme</a>
+                </div>
+                <h1 id="title">24-Nguyễn Gia Bảo</h1>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Products</h1>
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="ten">Tên sản phẩm</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" name="ten" id="ten">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="sl">Số lượng</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="number" name="sl" id="sl">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="gia">Giá thành</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="number" name="gia" id="gia">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="km">Khuyến mãi</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select name="km" id="km">
+                            <option value="Có">Có</option>
+                            <option value="Không">Không</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: right;">
+                        <input type="button" name="" id="submit" value="Submit" onclick="show()"  >
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label for="" id="kq" ></label>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Mathematics </h1>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="number" name="a" id="inpa" placeholder="Nhập số a">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" name="b" id="inpb" placeholder="Nhập số b">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary" onclick="cong()">Cộng</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-secondary" onclick="tru()">Trừ</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-success" onclick="nhan()">Nhân</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-info" onclick="chia()">Chia</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-danger" onclick="mu()">Mũ</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-dark" onclick="boiso()">Bội số</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <label for="" id="math"></label>
+            </div>
+        </div>
+        <div class="row" id="theme">
+            <h1>Theme</h1>
+            <div class="row">
+                <input type="color" name="" id="cl"  style="width: 30%;padding: 0;">
+            </div>
+            <div class="row">
+                <button onclick="change()" style="width: 20%;"  class="btn btn-warning">Đổi màu nền</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

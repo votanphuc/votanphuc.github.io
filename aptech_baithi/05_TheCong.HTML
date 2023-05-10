@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script>
+        function showInfo() {
+    let res = document.getElementById("res1");
+
+    let tensanpham = document.getElementById("sanpham");
+    res.innerHTML += "Tên Sản Phẩm: " + tensanpham.value;
+
+    let soluong = document.getElementById("soluong");
+    var d = new Date(soluong.value);
+    res.innerHTML += "<br/>Số lượng sản phẩm: " + soluong.value;
+
+    let giathanh = document.getElementById("giathanh");
+    res.innerHTML += "<br/>Giá Thành: " + giathanh.value;
+
+    let khuyenmai = document.getElementById("khuyenmai");
+    res.innerHTML += "<br/>Khuyến Mại: " + khuyenmai.value;
+}
+    </script>
+
+    <title>Nguyễn Thế Công</title>
+
+    <style>
+        .TieuDe {
+            font-family: sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            vertical-align: middle;
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #5f00cb
+        }
+
+        .sbmt1 {
+            background-color: #8DEEEE;
+            color: rgb(5, 5, 5);
+            font-size: 30px;
+        }
+
+        .res1 {
+            padding: 0px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class=" row">
+            <div class="col-sm-8">
+                <img src="./aptechlg.png" height="80" alt="logo">
+                <span class="TieuDe">05-Nguyễn Thế Công</span>
+            </div>
+            <div class="col-sm-4">
+                <div class="topnav-right">
+                    <a href="#Link1" style="text-decoration: none;">Product |</a>
+                    <a href="#Link2" style="text-decoration: none;"> Math |</a>
+                    <a href="#Link3" style="text-decoration: none;"> Theme </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-7">
+                <h1>Products</h1>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>Tên Sản Phẩm</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" id="sanpham" name="TSP" placeholder="Nhập Tên Sản Phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>Số Lượng</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" id="soluong" name="SL" placeholder="Nhập Số Lượng">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>Giá Thành</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" id="giathanh" name="GT" placeholder="Nhập Giá Thành">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>Khuyến Mại</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <select ID="KM" id="khuyenmai" class="w-100">
+                            <option value="Có">Có</option>
+                            <option value="Không">Không</option>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="submit" id="submit" class="btn w-100 sbmt1" value="Submit" onclick="showInfo()">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <h5 id="KQ">Kết quả: </h5>
+                <label class="res1" id="res1"></label>
+            </div>
+
+        </div>
+        <div class="row">
+            <h1>mathematics</h1>
+            <div class="col-sm-5">
+                <span>số thứ nhất:</span><br>
+                <input type="number" id="num1" value="nhập số thứ nhất"><br>
+                <span>số thứ hai:</span><br>
+                <input type="number" id="num2" value="nhập số thứ hai"><br>
+                <input type="button" class="btn btn-primary btn-lg ws input-group" value="Cộng" onclick="cong()"></br>
+                <input type="button" class="btn btn-secondary btn-lg ws input-group" value="trừ" onclick="tru()"></br>
+                <input type="button" class="btn btn-success btn-lg ws input-group" value="nhân" onclick="nhan()"></br>
+                <input type="button" class="btn btn-info btn-lg ws input-group" value="chia" onclick="chia()"></br>
+                <input type="button" class="btn btn-danger btn-lg ws input-group" value="mu" onclick="mu()"></br>
+            </div>
+            <div class="col-sm-7">
+                <h4> Kết quả:</h4>
+                <label class="res2" id="res2"></label>
+            </div>
+        </div>
+</body>
+
+</html>

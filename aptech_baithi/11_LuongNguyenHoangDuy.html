@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./11_LuongNguyenHoangDuy.js"></script>
+    <title>LUONG NGUYEN HOANG DUY</title>
+
+    <style>
+        .brandname{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: red;
+            vertical-align: middle;
+        }
+        .topnav-right {
+            float: right;
+        }
+
+
+        a:hover {
+            text-decoration: none;
+            color:#5f00cb ;
+        }
+        mHeader {
+            padding-bottom: 50px;
+        }
+        .sbmt1 {
+            background-color: #8DEEEE;
+            color: black;
+            font-size: 30px;
+        }
+        
+        .clr1{
+            background-color: #8DEEEE;
+            color: black;
+            font-size: 30px;
+        }
+        row{
+            padding :5px;
+        }
+
+        .res2 {
+            padding: 0px 50px;
+        }
+        body{
+            margin-bottom : 100px;
+        }
+        .ws {
+            width: 200px;
+        }
+
+        .res1 {
+            padding: 0px 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mheader" id="mHeader">
+            <div class="col-sm-8">
+                <img src="./aptechlg.png" alt="logo ben trai" height="80px">
+                <span class="brandname">11_LUONG NGUYEN HOANG DUY</span>
+            </div>
+            <div class="col-sm-4">
+                <div class="topnav-right">
+                    <a href="#product">Product</a> |
+                    <a href="#Math">Math</a> |
+                    <a href="#Theme">Theme</a> 
+                </div>
+        </div>
+            </div>
+            <br>
+            <div class="row" id="productlInfo">
+                <h1>Products</h1>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label for="name">Tên sản phẩm :</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input class="input-product" id="name" type="text" placeholder="Nhập tên sản phẩm">
+                            </div>
+                        </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="number-product">Số lượng:</label>
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="number" id="input-number-of-product" placeholder="Nhập số lượng sản phẩm">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="Price">Giá thành :</label>
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="number" id="input-price" placeholder="Nhập giá thành">
+                        </div>
+                    </div>
+                    
+                    <br>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="discount">Khuyến mãi :</label>
+                        </div>
+                        <div class="col-sm-7">
+                            <select id="km" class="form-select form-select-sm" aria-label=".form-select-sm">
+                                <option value="co">có</option>
+                                <option value="khong">không</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-sm-3 offset-sm-9">
+                            <input type="submit" id="submit" class="btn w-100 sbmt1" value="Submit" onclick="showInfo()">
+                        </div>
+                    </div>
+
+                    <br>
+                    
+                    <div class="col-sm-6">
+                        <h5 id="resHeader">Kết quả: </h5>
+                        <label class="res1" id="res1"></label>
+                    </div>
+                    
+
+                    <div class="row" id="math">
+                        <h2>Mathematics: </h2>
+                        <div class="col-sm-4">
+                            <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+                            <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+                            <input type="button" class="btn btn-primary btn-lg ws" value="Cộng" onclick="cong()">
+                            <br>
+                            <input type="button" class="btn btn-secondary btn-lg ws" value="Trừ" onclick="tru()">
+                            <br>
+                            <input type="button" class="btn btn-success btn-lg ws" value="Nhân" onclick="nhan()">
+                            <br>
+                            <input type="button" class="btn btn-info btn-lg ws" value="Chia" onclick="chia()">
+                            <br>
+                            <input type="button" class="btn btn-danger btn-lg ws" value="Lũy thừa" onclick="mu()">
+                            <br>
+                            <input type="button" class="btn btn-dark btn-lg ws" value="Bội số" onclick="sont()">
+                            <br>
+                        </div> 
+
+                        <div class="col-sm-8">
+                            <h5 id="resHeader2">Kết quả: </h5>
+                            <label class="res" id="res2"></label>
+                        </div>
+                    </div>
+
+                        <div class="row" id="colorTheme">
+                            <h2>Theme: </h2>
+                            <div class="col-sm-12">
+                                <input type="color" name="color" id="color">
+                                <input type="button" value="Đổi màu nền" onclick="changebackground()">
+                            </div>
+                        </div>
+                
+    </div>
+
+</body>
+
+</html>

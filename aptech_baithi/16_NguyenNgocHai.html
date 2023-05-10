@@ -1,0 +1,249 @@
+<!-- b4-$ -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>THI</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="./16_NguyenNgocHai.js"></script>
+
+  <style>
+    .tenBan {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 40px;
+      font-wight: bold;
+      vertical-align: middle;
+      color: red;
+    }
+
+    .row {
+      padding: 20px;
+    }
+
+    #a {
+      width: 10vw;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <!-- =======================================  -->
+  <script>
+    function showInfo() {
+      let res = document.getElementById("res1"); // lấy thẻ theo id res1 để chuẩn bị in ra kết quả
+      res.innerHTML = "";
+
+      let ten = document.getElementById("name");
+      res.innerHTML += "Tên sản phẩm: " + ten.value;
+
+      let quantity = document.getElementById("quantity");
+      res.innerHTML += "<br/>Số Lượng: " + quantity.value;
+
+      let price = document.getElementById("price");
+      res.innerHTML += "<br/>Giá Thành: " + price.value;
+
+      let km = document.getElementById("discount");
+      res.innerHTML += "<br/>Khuyến Mãi: " + km.value;
+    }
+    function cong() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let cong = num1 + num2;
+      res.innerHTML += "Phép cộng: " + num1 + "+" + num2 + "=" + cong;
+    }
+
+    function tru() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let tru = num1 - num2;
+      res.innerHTML += "Phép trừ: " + num1 + "-" + num2 + "=" + tru;
+    }
+
+    function nhan() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let nhan = num1 * num2;
+      res.innerHTML += "Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
+    }
+
+    function chia() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let chia = num1 / num2;
+      res.innerHTML += "Phép chia: " + num1 + "/" + num2 + "=" + chia;
+    }
+
+    function mu() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let mu = num1;
+      for (let i = 1; i < num2; i++) {
+        mu *= num1;
+      }
+      res.innerHTML += "Phép mũ: " + num1 + "^" + num2 + "=" + mu;
+    }
+
+    function sont() {
+      let res = document.getElementById("res2");
+      res.innerHTML = "";
+
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
+
+      let s = isPrime(num1) ? " Là số nguyên tố. " : " Không là số nguyên tố. ";
+      let s2 = isPrime(num2) ? " Là số nguyên tố. " : " Không là số nguyên tố. ";
+
+      res.innerHTML += num1 + s + num2 + s2;
+    }
+
+    function isPrime(n) {
+      if (n <= 1) return false;
+
+      for (let i = 2; i < n; i++) if (n % i == 0) return false;
+
+      return true;
+    }
+
+    function changebackground() {
+      let maunen = document.getElementById("color");
+      document.body.style.backgroundColor = maunen.value;
+    }
+
+  </script>
+
+</body>
+<class="contaner">
+  <div class="row mHeader" id="mHeader">
+    <div class="col-sm-8">
+      <img src="./assets/images/aptechlg.png" height="80" alt="Logo bên trái">
+      <span class="tenBan">16_Nguyen Ngoc Hai</span>
+    </div>
+    <div class="col-sm-4">
+      <a href="#products">product</a> |
+      <a href="#math">math</a> |
+      <a href="#colortheme">theme</a> |
+    </div>
+    <div class="row col-6" id="productInfo">
+      <h2 style="color: red;">Products</h2>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Tên sản phẩm:</span>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" id="name" placeholder="Nhập tên sản phẩm">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Số lượng:</span>
+        <input type="number" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" id="quantity" placeholder="Nhập số lượng sản phẩm">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Giá tiền:</span>
+        <input type="number" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" id="price" placeholder="Nhập giá tiền">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-text">
+          <label>Khuyến Mãi</label>
+        </div>
+        <select class="form-select" aria-label="Default select example" id="discount" style="width: 88%;">
+          <option selected>Hãy chọn</option>
+          <option value="Có">Có</option>
+          <option value="Không">Không</option>
+        </select>
+      </div>
+      <div>
+        <div class="col-sm-3 offset-sm-9" style="position: relative;left: 40vw;">
+          <input style="background-color: aqua!important;border: 0;" type="submit" id="submit" value="Submit"
+            onclick="showInfo()">
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------- -->
+    <div class="row col-6">
+      <h2 style="color: blue;">Kết Quả:</h2>
+      <label class="res1" id="res1"></label>
+
+    </div>
+  </div>
+  <!-- ================================================= -->
+  <!-- ========================================= -->
+  <div class="row" id="math">
+    <h2>Mathematics: </h2>
+    <div class="col-sm-4">
+      <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+      <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+      <input type="submit" class="btn btn-primary btn-lg ws" value="Cộng" id="a" onclick="cong()">
+      <br>
+      <input type="submit" class="btn btn-secondary btn-lg ws" value="Trừ" id="a" onclick="tru()">
+      <br>
+      <input type="submit" class="btn btn-success btn-lg ws" value="Nhân" id="a" onclick="nhan()">
+      <br>
+      <input type="submit" class="btn btn-info btn-lg ws" value="Chia" id="a" onclick="chia()">
+      <br>
+      <input type="submit" class="btn btn-danger btn-lg ws" value="Mũ" id="a" onclick="mu()">
+      <br>
+      <input type="submit" class="btn btn-dark btn-lg ws" value="Số nguyên tố" id="a" onclick="sont()">
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <h2 id="resHeader2">Kết quả: </h2>
+      <p class="res" id="res2"></p>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <h1>Theme</h1>
+  <div class="form-group">
+    <label for="color-picker">Pick a color:</label>
+    <input type="color" class="form-control" id="color-picker">
+  </div>
+  <button type="button" class="btn btn-warning" id="change-theme-btn">Change Theme Color</button>
+  </section>
+
+  <script>
+    document.getElementById("change-theme-btn").addEventListener("click", function () {
+      const section = document.querySelector(".theme");
+      const color = document.querySelector("#color-picker").value;
+      section.style.backgroundColor = color;
+    });

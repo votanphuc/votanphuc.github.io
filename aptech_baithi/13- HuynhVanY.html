@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Văn Ý</title>
+    <script>
+        function show() {
+            document.getElementById("result").innerHTML = "";
+            var kq = document.getElementById("result");
+            var ten = document.getElementById("ten").value;
+            kq.innerHTML = "Tên sản phẩm : " + ten;
+            var one = document.getElementById("one").value;
+            kq.innerHTML += "<br>Số lượng : " + one;
+            var gt = document.getElementById("gt").value;
+            kq.innerHTML += "<br>Gía thành : " + gt;
+            var km = document.getElementById("km").value;
+            kq.innerHTML += "<br>Khuyến mãi : " + km;
+        }
+        function cong() {
+            let res = document.getElementById("math");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("so1").value);
+            let num2 = parseInt(document.getElementById("so2").value);
+
+            let cong = num1 + num2;
+            res.innerHTML += + cong;
+        }
+        function tru() {
+            let res = document.getElementById("math");
+            res.innerHTML = "";
+            let num1 = parseInt(document.getElementById("so1").value);
+            let num2 = parseInt(document.getElementById("so2").value);
+
+            let tru = num1 - num2;
+            res.innerHTML += + tru;
+        }
+        function nhan() {
+            document.getElementById("math").innerHTML = "";
+            var a = document.getElementById("so1").value;
+            var b = document.getElementById("so2").value;
+            document.getElementById("math").innerHTML += parseInt(a) * parseInt(b);
+        }
+
+
+        function chia() {
+            document.getElementById("math").innerHTML = "";
+            var a = document.getElementById("so1").value;
+            var b = document.getElementById("so2").value;
+            document.getElementById("math").innerHTML += parseInt(a) / parseInt(b);
+        }
+        function mu() {
+            document.getElementById("math").innerHTML = "";
+            var a = document.getElementById("so1").value;
+            var b = document.getElementById("so2").value;
+            document.getElementById("math").innerHTML += parseInt(a) ** parseInt(b);
+        }
+        function bs(){
+            document.getElementById("math").innerHTML="";
+            var bs = document.getElementById("math");
+            var a = document.getElementById("so1").value;
+            var b= document.getElementById("so2").value;
+            if(a%b==0){
+                bs.innerHTML = a+ " là bội số của " +b;
+            }
+            else{
+                bs.innerHTML =a+ " không phải là bội số của " +b;
+            }                
+        }
+        function dmn() {
+            let maunen = document.getElementById("color");
+            document.body.style.backgroundColor = maunen.value
+        }
+    </script>
+    <style>
+        .head {
+            text-align: right;
+
+        }
+
+        .h1 {
+            height: 80px;
+            size: 40px;
+            color: rgb(212, 14, 14);
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        a:hover {
+            color: #5f00cb;
+        }
+
+        input,
+        select {
+            width: 100%;
+            margin: 3px;
+        }
+        #hn {
+            width: 10%;
+            font-size: 10px;
+            margin: 0;
+        }
+        .ht {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" col-sm-5">
+                <img src="./aptechlg (1).png">
+            </div>
+            <div class="col-sm-7">
+                <div class="head">
+                    <a href="#">Product</a>
+                    <a href="#">Math</a>
+                    <a href="#">Theme</a>
+                </div>
+                <h1 class="h1">13 - Huỳnh Văn Ý</h1>
+            </div>
+        </div>
+        <h1><u> Products :</u></h1>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="ten">Tên sản phẩm :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" id="ten" name="ten" placeholder="Nhập Tên sản phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="ten">Số lượng :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="number" id="one" name="one" placeholder="Nhập số lượng">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="ten">Giá thành :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="number" id="gt" name="gt" placeholder="Giá cả thương lượng">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="gt">Khuyến mãi :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select name="km" id="km">
+                            <option>Có</option>
+                            <option>Không</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" col-sm-12 offset-sm-5">
+                    <button class="btn w-50 sbmt1" style="background-color:#8DEEEE; size: 30px;"
+                        onclick="show()">Submit</button>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <i><u><b> Kết Quả :</b></u></i><br>
+                <label for="" id="result"></label>
+            </div>
+        </div><br>
+        <div class="container">
+            <h1><u> Mathematics :</u></h1>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="number" name="" id="so1" placeholder="Nhập số a">
+                        </div>
+                        <div class="col-sm-12">
+                            <input type="number" name="" id="so2" placeholder="Nhập số b">
+                        </div>
+                    </div>
+                    <div class="ht">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" onclick="cong()" class="btn btn-primary ; w-100">Cộng</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" onclick="tru()" class="btn btn-secondary ; w-100">Trừ</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" onclick="nhan()" class="btn btn-success ; w-100">Nhân</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" onclick="chia()" class="btn btn-info ; w-100">Chia</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" onclick="mu()" class="btn btn-danger ; w-100">Lũy thừa</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" onclick="bs()" class="btn btn-dark ; w-100">Bội số</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <i><u><b> Kết Quả :</b></u></i><br>
+                    <label class="res" id="math"></label>
+                </div>
+            </div>
+        </div><br>
+        <h2><u>Theme :</u></h2>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-1">
+                    <input type="color" name="color" id="color" class="clo">
+                </div>
+                <div class="col-sm-11">
+                    <input type="button" value="ĐỔI MÀU NỀN" onclick="dmn()" class="btn btn-success ; w-50">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+</body>
+
+</html>

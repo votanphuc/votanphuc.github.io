@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="19_NguyenHoangNam.js"></script>
+    <title>19_NguyenHoangNam</title>
+    <style>
+        img {
+            width: 280px;
+            height: 80;
+        }
+        .btn {
+            width: 200px;
+            border: 1px;
+            background-color: #8DEEEE;
+            font-size: 30;
+            color: black;
+        }
+        a:hover {
+            color: #5f00cb;
+            text-decoration: underline;
+        }
+        .Header{
+            font-size: 40px;
+            font-style: bold;
+            color: red;
+        }
+        div {
+            border: 1px solid transparent);
+        }
+        body {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <img src="./aptechlg.png">
+                <span class="Header" id="mHeader">19_NguyenHoangNam</span>
+            </div>
+            <div class="col-sm-4">
+                <a href="#" style="text-decoration: none;">product</a> |
+                <a href="#" style="text-decoration: none;">math</a> |
+                <a href="#" style="text-decoration: none;">theme</a>
+            </div>
+        </div>
+        <h1>Product</h1>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="Ten">Tên sản phẩm:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" id="Ten" placeholder="Tên sản phẩm"><br>
+                    </div>
+                </div>
+                    <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="Sl">Số lượng:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="number" id="Sl" placeholder="Số lượng"><br>
+                    </div>
+                </div>
+                    <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="Gia">Giá thành:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="number" id="Gia" placeholder="Giá thành"><br>
+                    </div>
+                </div>
+                    <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="Km" id="Km">Khuyen mai:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select>
+                            <option value="Co"> Có </option>
+                            <option value="Khong"> Không </option>
+                        </select>
+                    </div>
+                </div>
+                    <br>
+                <div class="row">
+                    <div>
+                        <input class="btn" type="submit" id="Nhap" placeholder="Submit" onclick="showinfo()" style="float: right;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <h4> Kết quả </h4>
+                <label class="ketqua1" id="ketqua1"></label>
+            </div>
+        </div>
+        <h1>Mathematics</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+                <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: blue; width: 200px" value="Cộng" onclick="cong()">
+                <br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: gray; width: 200px" value="Trừ" onclick="tru()">
+                <br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: green; width: 200px" value="Nhân" onclick="nhan()">
+                <br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: skyblue; width: 200px" value="Chia" onclick="chia()">
+                <br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: red; width: 200px" value="Mũ" onclick="mu()">
+                <br>
+                <input type="button" class="btn-danger btn-lg ws" style="background-color: black; width: 200px" value="Bội Số" onclick="sont()">
+                <br>
+            </div>
+            <div class="col-sm-8">
+                <h4> Kết quả </h4>
+                <label class="ketqua2" id="ketqua2"></label>
+            </div>
+        </div>
+        <h1>Theme</h1>
+        <div class="col-sm-12" id="theme">
+            <input type="color" name="color" id="color"><br>
+            <input type="button" class="btn btn-warning" value="Đổi màu nền" onclick="doimaunen()">
+        </div>
+    </div>    
+</body>
+</html>

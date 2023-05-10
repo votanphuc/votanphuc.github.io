@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha184-Gn5184xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E261XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <title>Document</title>
+        <style>
+        .navbar1 a{
+            text-decoration: none;
+            color: black;
+            padding: 5px;
+        }
+        .navbar1 a:hover{
+            color: #5f00cb;
+        }
+        .chg1{
+            width: 120px;
+        }
+        .chag {
+            margin-left: 260px;
+            width: 250px;
+        }
+        /* .btn1{
+            margin-left: 520px;
+        } */
+        #sz{
+            width: 100px;
+            border-radius: 5px;
+        }
+        #sz1{
+            width: 120px;
+            border-radius: 5px;
+        }
+        #sz2{
+            width: 120px;
+            border-radius: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img style="height: 80px;" src="./aptechlg.png" alt="#">
+                </div>
+                <div class="col-5">
+                    <h1 style="font-size: 40; color: red;font-weight: bold;"
+                        class="h1">3-TranBaoHuy</h1>
+                </div>
+                <div class="col-4">
+                    <div class="navbar1">
+                        <a href="#">product</a>
+                        <a href="#">math </a>
+                        <a href="#">theme</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-7">
+                    <h1>Products</h1>
+                    <table>
+                        <th>
+                            <label class="chg1" for="" id="tensanpham">Tên sản
+                                phẩm</label><br>
+                            <label class="chg1" for="" id="soluong">Số lượng</label><br>
+                            <label class="chg1" for="" id="giathanh">Giá thành</label><br>
+                            <label class="chg1" for="" id="khuyenmai">Khuyến mãi</label>
+                        </th>
+                        <th>
+                            <td>
+                                <input class="chag" type="text"
+                                    name="tensanpham1" id="tensp"
+                                    placeholder="tên sản phẩm"><br>
+                                <input class="chag" type="number"
+                                    name="soluong1" id="slg" placeholder="số lượng"><br>
+                                <input class="chag" type="number"
+                                    name="giathanh1" id="gth" placeholder="giá thành"><br>
+                                <div class="chag">
+                                    <select name="KhuyenMai" id="khm1"><br>
+                                        <option value="có">Có</option>
+                                        <option value="không">Không</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </th>                                 
+                    </table>
+                    <div class="btn1">
+                        <input type="button" class="btn float-right" style="background-color:
+                            #8DEEEE; color: #000; font-size: 30px; " value="Kết quả" id="sz2" onclick="Kq()">
+                    </div>
+                </div>
+                <div class="col-5">
+                    <h3>Kết quả</h3>
+                    <label for="res" id="res"></label>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <h1> Mathematics</h1>
+                    <input type="number" name="number" id="Number1"
+                        placeholder="nhap so a">
+                    <input type="number" name="number" id="Number2"
+                        placeholder=" nhap so b">
+                    <br>
+                    <input type="button" class="btn-primary" id="sz" value="Phép cộng" onclick="pheptinhcong()">
+                    <br>
+                    <input type="button" class="btn-secondary" id="sz" value="Phép trừ"
+                        onclick="pheptinhtru()">
+                    <br>
+                    <input type="button" class="btn-success" id="sz" value="Phép nhân"
+                        onclick="pheptinhnhan()">
+                    <br>
+                    <input type="button" class="btn-info"  id="sz"value="Phép chia"
+                        onclick="pheptinhchia()">
+                    <br>
+                    <input type="button" class="btn-danger" id="sz" value="Phép mũ"
+                        onclick="pheptinhmu()">
+                    <br>
+                    <input type="button" class="btn-dark" id="sz" value="Phép bội số"
+                        onclick="pheptinhboiso()">
+                </div>
+                <div class="col-8">
+                    <h3>Kết quả</h3>
+                    <label for="res1" id="res1"></label>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-12" id="maunen">
+                    <h1>Theme</h1>
+                    <input type="color"  name="color1" id="colorr"><br>
+                    <br>
+                    <input id="sz1" type="button" class="btn-warning" value="Đổi màu nền" onclick="changeColor()">
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <script>
+function Kq(){
+    
+        let res = document.getElementById("res");
+
+        if(res.innerHTML != ""){
+            res.innerHTML = "";
+        }else{
+            res.innerHTML += "";
+        let tensph = document.getElementById("tensp");
+        res.innerHTML += "tên sản phẩm: "+ tensph.value + "<br>";
+
+        let soluong = document.getElementById("slg")
+        res.innerHTML += "số lượng: " +soluong.value +  "<br>"
+
+        let giathanh = document.getElementById("gth")
+        res.innerHTML += "giá thành: " +giathanh.value +  "<br>"
+
+        let km = document.getElementById("khm1")
+        res.innerHTML += "Khuyến mãi: " +km.value +  "<br>"
+        }
+     }
+
+function pheptinhcong(){
+    let res1 = document.getElementById("res1");
+    res1.innerHTML += " ";
+
+    let num1 =parseInt(document.getElementById("Number1").value);
+    let num2 =parseInt(document.getElementById("Number2").value)
+    
+    let phepcong = num1 + num2;
+    res1.innerHTML += "phep cong: "+num1 +"+"+num2+"=" + phepcong +" <br>";
+}
+function pheptinhtru(){
+    let res1 = document.getElementById("res1");
+    res1.innerHTML += " ";
+
+    let num1 =parseInt(document.getElementById("Number1").value);
+    let num2 =parseInt(document.getElementById("Number2").value)
+
+    let pheptru = num1 - num2;
+    res1.innerHTML += "phep tru: "+ num1 + "-"+ num2+ "=" + pheptru +" <br>";
+}
+
+function pheptinhnhan(){
+    let res1 = document.getElementById("res1");
+    res1.innerHTML += " ";
+
+    let num1 =parseInt(document.getElementById("Number1").value);
+    let num2 =parseInt(document.getElementById("Number2").value)
+
+    let phepnhan = num1 * num2;
+    res1.innerHTML += "phep nhan: "+num1+"*"+num2+ "=" + phepnhan +" <br>";
+} 
+function pheptinhchia(){
+    let res1 = document.getElementById("res1");
+    res1.innerHTML += " ";
+
+    let num1 =parseInt(document.getElementById("Number1").value);
+    let num2 =parseInt(document.getElementById("Number2").value)
+
+    let phepchia = num1 / num2;
+    res1.innerHTML += "phep chia: " +num1 + "/"+ num2 + "=" + phepchia+" <br>";
+} 
+
+function pheptinhmu(){
+    let res1 = document.getElementById("res1");
+    res1.innerHTML += " ";
+
+    let num1 =parseInt(document.getElementById("Number1").value);
+    let num2 =parseInt(document.getElementById("Number2").value)
+    
+    let mu = num1;
+    for(let i =1 ;i < num2; i++){
+        mu *=num1;
+    }
+    res1.innerHTML += "phep mu: " + num1 +"^" + num2 + "="+ mu+ "<br>";
+
+}
+function changeColor(){
+    let maunen1 =document.getElementById("maunen");
+    
+    let maunen2 = document.getElementById("colorr");
+
+    maunen1.style.backgroundColor = maunen2.value;
+}
+    </script>
+</html>

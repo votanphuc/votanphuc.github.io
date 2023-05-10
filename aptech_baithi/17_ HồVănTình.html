@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>17 Hồ Văn Tình</title>
+    <style>
+        .brandName {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            vertical-align: middle;
+            color: red;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color:#5f00cb;
+            text-decoration: underline;
+        }
+
+        .mHeader {
+            padding-bottom: 50px;
+        }
+
+        .res1 {
+            padding: 0px 50px;
+        }
+
+        .row {
+            padding: 5px;
+        }
+
+        .lft {
+            float: left;
+        }
+
+        .rft {
+            float: right;
+        }
+
+        .footer {
+            padding: 25px;
+        }
+
+        body {
+            margin-bottom: 100px;
+        }
+
+        .sbmt1 {
+            background-color: #8DEEEE;
+            color: black;
+            font-size: 30px;
+        }
+
+        .ws {
+            width: 200px;
+        }
+    </style>
+    <script>
+        function showInfo() {
+    let res = document.getElementById("res1");
+    res.innerHTML = "";
+
+    let ten = document.getElementById("name");
+    res.innerHTML += "Tên sản phẩm: " + ten.value;
+
+    let soluong = document.getElementById("soluong");
+    res.innerHTML += "<br/>Số lượng: " + soluong.value;
+
+    let gia = document.getElementById("gia");
+    res.innerHTML += "<br/>Giá thành: " + gia.value;
+
+    let km = document.getElementById("km");
+    res.innerHTML += "<br/>Khuyến mãi: " + km.value;
+        }
+
+        function changebackground() {
+    let maunen = document.getElementById("color");
+    document.body.style.backgroundColor = maunen.value;
+
+}
+function cong() {
+    let res = document.getElementById("res2"); 
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let cong = num1 + num2;
+    res.innerHTML += "Phép cộng: " + num1 + "+" + num2 + "=" + cong;
+}
+
+function tru() {
+    let res = document.getElementById("res2"); 
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let tru = num1 - num2;
+    res.innerHTML += "Phép trừ: " + num1 + "-" + num2 + "=" + tru;
+}
+
+function nhan() {
+    let res = document.getElementById("res2"); 
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let nhan = num1 * num2;
+    res.innerHTML += "Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
+}
+
+function chia() {
+    let res = document.getElementById("res2");
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let chia = num1 / num2;
+    res.innerHTML += "Phép chia: " + num1 + "/" + num2 + "=" + chia;
+}
+
+function mu() {
+    let res = document.getElementById("res2"); 
+    res.innerHTML = "";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let mu = num1;
+    for (let i = 1; i < num2; i++) {
+        mu *= num1;
+    }
+    res.innerHTML += "Phép mũ: " + num1 + "^" + num2 + "=" + mu;
+}
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row mHeader" id="mHeader">
+            <div class="col-sm-6">
+                <img src="./aptechlg.png" height="80px" alt="Aptech">
+                <span class="brandName">17-Hồ Văn Tình</span>
+            </div>
+            <div class="col-sm-6">
+                <div class="topnav-right">
+                    <a href="#info">product</a> |
+                    <a href="#math">math</a> |
+                    <a href="#colorTheme">theme</a>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="personalInfo">
+            <h1>Products</h1>
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label for="name">Tên sản phẩm</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input class="input-group input-group-sm" id="name" type="text" placeholder="Nhập tên sản phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label for="phone">Nhập số lượng </label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input class="input-group input-group-sm" id="soluong" type="number"
+                            placeholder="Nhập số lượng">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label for="phone">Giá thành </label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input class="input-group input-group-sm" id="gia" type="number"
+                            placeholder="Nhập giá">
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>Khuyến mãi: </label>
+                    </div>
+                    <div class="col-sm-5">
+                        <select id="km" class="form-select form-select-sm" aria-label=".form-select-sm">
+                            <option value="Có">Có</option>
+                            <option value="Không">Không</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-9">
+                        <input type="submit" id="submit" class="btn w-100 sbmt1" value="Submit" onclick="showInfo()">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <h5 id="resHeader">Kết quả: </h5>
+                <label class="res1" id="res1"></label>
+            </div>
+
+            <div class="row" id="math">
+                <h1>Mathematics: </h1>
+                <div class="col-sm-4">
+                    <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+                    <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+                    <input type="button" class="btn btn-primary btn-lg ws" value="Cộng" onclick="cong()">
+                    <br>
+                    <input type="button" class="btn btn-secondary btn-lg ws" value="Trừ" onclick="tru()">
+                    <br>
+                    <input type="button" class="btn btn-success btn-lg ws" value="Nhân" onclick="nhan()">
+                    <br>
+                    <input type="button" class="btn btn-info btn-lg ws" value="Chia" onclick="chia()">
+                    <br>
+                    <input type="button" class="btn btn-danger btn-lg ws" value="Mũ" onclick="mu()">
+                    <br>
+                </div>
+            <div>
+            </div>
+                <div class="col-sm-8">
+                <h5 id="resHeader2">Kết quả: </h5>
+                <label class="res" id="res2"></label>
+                </div>
+        </div>
+            
+        </div>
+        <div class="row" id="colorTheme">
+        <h1>Theme: </h1>
+        <div class="col-sm-12">
+            <input type="color" name="color" id="color">
+            <input type="button" value="Đổi màu nền" onclick="changebackground()">
+        </div>
+    </div>        
+    </div>
+
+</body>
+</html>

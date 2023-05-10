@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <!-- <script src="./1_DinhTanKhanh.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>1_DinhTanKhanh</title>
+    <style>
+        div {
+            border: 1px solid brown;
+            border: none;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        .row {
+            padding: 10px 0;
+        }
+
+        .webName {
+            font-size: 40px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .nav {
+            float: right;
+            border: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            color: #5f00cb;
+            text-decoration: underline;
+        }
+
+        .btnSubmit {
+            font-size: 30px;
+            background-color: #8deeee;
+            float: right;
+            border: none;
+        }
+
+        .inputText {
+            width: 100%;
+        }
+
+        .title {
+            font-size: 20px;
+            color: green;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .btn-warning {
+            width: 200px;
+        }
+
+        .areaColor {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <tr>
+                    <td><img class="logo" src="./aptechlg.png" alt="aptechlg" /></td>
+                    <td><span class="webName">1 - Đinh Tấn Khanh</span></td>
+                </tr>
+            </div>
+            <div class="col-sm-4">
+                <div class="nav">
+                    <a href="#product">Product</a>|<a href="#math">Math</a>|<a href="#theme">Theme</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1 id="info" class="title">Products</h1>
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="tenSP">Tên sản phẩm:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="inputText" type="text" name="tenSP" id="tenSP" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="soluong">Số lượng:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="inputText" type="number" name="soluong" id="soluong" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="giathanh">Giá thành:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="inputText" type="number" name="giathanh" id="giathanh" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="khuyenmai">Khuyến mãi:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="inputText" name="khuyenmai" id="khuyenmai">
+                            <option value="Có">Có</option>
+                            <option value="Không">Không</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input class="btnSubmit" type="button" value="Submit" onclick="showInfo()" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label id="resInfo" style="font-weight: 700; font-size: 20px" for="resInfo">Kết Quả:</label>
+            </div>
+        </div>
+        <div class="row">
+            <h1 id="info" class="title">Mathematics</h1>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <input type="number" name="num1" id="num1" placeholder="Number 1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="number" name="num2" id="num2" placeholder="Number 2" />
+                        </td>
+                    <tr>
+                        <td>
+                            <input class="btn btn-primary" type="button" value="Cộng" onclick="cong()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-secondary" type="button" value="Trừ" onclick="tru()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-success" type="button" value="Nhân" onclick="nhan()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-info" type="button" value="Chia" onclick="chia()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-danger" type="button" value="Mũ" onclick="mu()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-dark" type="button" value="Bội số" onclick="boiso()" />
+                        </td>
+                    </tr>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-8">
+                <label id="resMath" style="font-weight: 700; font-size: 20px;">Kết Quả:
+            </div>
+        </div>
+        <div class="row">
+            <h1 id="info" class="title">Theme</h1>
+            <div id="colorArea" class="col-sm-12 areaColor">
+                <input type="color" name="color" id="color" value="#ffffff">
+                <br>
+                <input class="btn btn-warning" type="button" value="Đổi màu nền" onclick="changColor()" />
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function showInfo() {
+        document.getElementById("resInfo").innerHTML = "";
+        var info = document.getElementById("resInfo");
+        info.innerHTML = "Kết Quả: <br/>";
+
+        //   Tên sản phẩm
+        var tenSP = document.getElementById("tenSP").value;
+
+        //   Số lượng
+        var soluong = document.getElementById("soluong").value;
+        var soluongCheck = document.getElementById("soluong");
+
+        //   Giá thành
+        var giathanh = document.getElementById("giathanh").value;
+        var giathanhCheck = document.getElementById("giathanh");
+
+        //   Khuyến mãi
+        var khuyenmai = document.getElementById("khuyenmai").value;
+
+        if (tenSP && soluong && giathanh && khuyenmai) {
+            info.innerHTML += "<li>" + "Tên sản phẩm: " + tenSP;
+            if (soluong === Number || soluong >= 0) {
+                info.innerHTML += "<li>" + "Số lượng: " + soluong;
+            } else {
+                info.innerHTML +=
+                    "<li>" +
+                    "<mark><em>Lỗi: Số lượng phải được định dạng số và lớn hơn 0!</em></mark>";
+            }
+            if (giathanh === Number || giathanh >= 1000) {
+                info.innerHTML += "<li>" + "Giá thành: " + giathanh + " (VNĐ)";
+            } else {
+                info.innerHTML +=
+                    "<li>" +
+                    "<mark><em>Lỗi: Giá thành phải được định dạng số và lớn hơn 1000 (VNĐ)!</em></mark>";
+            }
+            var thanhtien = 1;
+            var giaGoc = 0;
+            var giaGoc = parseInt(soluongCheck.value) * parseInt(giathanhCheck.value);
+            if (khuyenmai == "Có") {
+                thanhtien = giaGoc - (giaGoc * 10 / 100);
+            } else {
+                thanhtien = giaGoc;
+            }
+            info.innerHTML += "<li>" + "Thành tiền: " + thanhtien;
+            info.innerHTML += "<li>" + "Khuyến mãi: " + khuyenmai;
+        } else {
+            info.innerHTML = "Lỗi: Vui lòng nhập đầy đủ và kiểm tra chính xác!";
+        }
+    }
+
+    //Cộng
+    function cong() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            var cong = parseInt(number1) + parseInt(number2);
+            resMathEle.innerHTML +=
+                "Phép cộng: " + number1 + " + " + number2 + " = " + cong + "<br/>";
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+
+    //Trừ
+    function tru() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            var tru = parseInt(number1) - parseInt(number2);
+            resMathEle.innerHTML +=
+                "Phép trừ: " + number1 + " - " + number2 + " = " + tru + "<br/>";
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+
+    // Nhân
+    function nhan() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            var nhan = parseInt(number1) * parseInt(number2);
+            resMathEle.innerHTML +=
+                "Phép nhân: " + number1 + " x " + number2 + " = " + nhan + "<br/>";
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+
+    //Chia
+    function chia() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            var chia = parseInt(number1) / parseInt(number2);
+            if (number2 == 0) {
+                resMathEle.innerHTML =
+                    "Lỗi: Không thể chia cho 0. Vui lòng nhập số khác!";
+            } else {
+                resMathEle.innerHTML +=
+                    "Phép chia: " + number1 + " / " + number2 + " = " + chia + "<br/>";
+            }
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+
+    //Lũy thừa
+    function mu() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            var luyThua = 1;
+            for (var i = 1; i <= number2; i++) {
+                luyThua *= number1;
+            }
+            resMathEle.innerHTML +=
+                "Lũy thừa: " + number1 + " ^ " + number2 + " = " + luyThua + "<br/>";
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+    function boiso() {
+        document.getElementById("resMath").innerHTML = "";
+        var resMathEle = document.getElementById("resMath");
+        resMathEle.innerHTML = "Result: <br/>";
+
+        //Input
+        var number1 = document.getElementById("num1").value;
+        var number2 = document.getElementById("num2").value;
+
+        if (number1 && number2) {
+            if (parseInt(number1) % parseInt(number2) == 0 && number2 != 0) {
+                resMathEle.innerHTML += number1 + " là bội số của " + number2;
+            }
+            else {
+                resMathEle.innerHTML += number1 + " KHÔNG phải là bội số của " + number2;
+            }
+        } else {
+            resMathEle.innerHTML = "Lỗi: Vui lòng nhập đầy đủ 2 số!";
+        }
+    }
+    function changColor() {
+        var changColor = document.getElementById("color").value;
+        document.getElementById("colorArea").style.backgroundColor = changColor;
+    }
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+/* div {
+    border: solid grey 0.5px;
+} */
+
+.brandName {
+    font-size: 40px;
+    vertical-align: middle;
+    font-weight: bold;
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topnav-right {
+    float: right;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5f00cb;
+    text-decoration: underline;
+}
+
+#km {
+    margin-left: 5px;
+}
+
+#submit {
+    background-color: #8DEEEE;
+    color: black;
+    font-size: 30px;
+}
+
+.mHeader {
+    padding-bottom: 20px;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+.row {
+    padding: 5px;
+}
+
+.btn {
+    margin-bottom: 5px;
+}
+
+input {
+    margin: 5px;
+}

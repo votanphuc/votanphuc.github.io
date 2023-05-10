@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Phạm Hồng Nghĩa</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    .the:hover {
+
+        color: #5f00cb;
+        text-decoration: underline;
+    }
+    
+    .b1{
+        width: 150px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <nav class="navbar navbar-expand-sm float- left">
+                    <div class="container-fluid">
+                        <a class="navbar-brand">
+                            <img src="./aptechlg.png" alt="Avatar Logo" style="width:100px;" class="rounded-pill">
+                            <span style="text-align: center;color: red;font-size: 40px; text-decoration: solid;">20_PHẠM
+                                HỒNG NGHĨA</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-4">
+                <nav class="navbar navbar-expand-sm float-right">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link the" href="#">Info|</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link the" href="#">Math|</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link the" href="#">Theme</a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </div>
+        </div>
+
+        <section class="product">
+            <h1>Products</h1>
+            <div class="row">
+                <div class="col-4">
+                    <label>Tên Sản Phẩm:</label><br>
+                    <label>Số Lượng:</label><br>
+                    <label>Giá Thành:</label><br>
+                    <label>Khuyến Mãi</label><br>
+                    <input style="background-color: #8DEEEE;color: black;font-size: 30px;" type="submit" id="Sub"
+                        name="Submit" value="Submit" onclick="ShowKQ()">
+                </div>
+                <div class="col-3">
+                    <input class="w-80" type="text" name="TSP" id="Name" placeholder=" Nhập Tên Sản Phẩm"><br>
+                    <input class="w-80" type="number" name="SL" id="Quantity" placeholder="Nhập Số Lượng"><br>
+                    <input class="w-80" type="number" name="GT" id="Price"><br>
+                    <section>
+                        <input type="radio" name="KM" id="Yes" class="TinhTrang" value="Có">
+                        <label for="Yes">Có</label>
+                        <input type="radio" name="KM" id="No" class="TinhTrang" value="Không">
+                        <label for="No">Không</label><br>
+                    </section>
+
+                </div>
+                <div class="col-5">
+                    <label>Kết Quả:</label><br>
+                    <label id="KQ"></label>
+                </div>
+            </div>
+        </section>
+
+        <section class="math row">
+            <div class="col-4">
+                <h1>Mathematics</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="input-a">a:</label>
+                        <input type="number" class="form-control" id="input-a">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-b">b:</label>
+                        <input type="number" class="form-control" id="input-b">
+                    </div>
+                    <div class="form-group">
+                        <input type="button"class="btn btn-primary btn-block" id="+" onclick="Math()" value="Add">
+                        <input type="button"class="btn btn-Secondary btn-block" id="-" onclick="Math()" value="Subtract">
+                        <input type="button"class="btn btn-success btn-block" id="*" onclick="Math()" value="Multiply">
+                        <input type="button"class="btn btn-info btn-block" id="/" onclick="Math()" value="Divide">
+                        <input type="button"class="btn btn-danger btn-block" id="^" onclick="Math()" value="Power">
+                        <input type="button"class="btn btn-dark btn-block" id="boiso" onclick="Math()" value="multiples">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <h1>Result</h1>
+                <label id="result"></label>
+            </div>
+        </section>
+
+        <section class="theme col-12">
+            <h1>Theme</h1>
+            <div class="form-group">
+                <label for="color-picker">Pick a color:</label>
+                <input type="color" class="form-control" id="color-picker">
+            </div>
+            <input type="button" class="btn btn-warning b1" id="change-theme" onclick="Theme()" value="Change Color">
+        </section>
+
+        <script>
+
+            function Theme(){
+            document.getElementById("change-theme").addEventListener("click", function () {
+                const section = document.querySelector(".theme");
+                const color = document.querySelector("#color-picker").value;
+                section.style.backgroundColor = color;
+            });
+        }
+
+
+            function ShowKQ() {
+
+
+                if (document.getElementById("KQ").innerHTML != "") {
+                    document.getElementById("KQ").innerHTML = "";
+                } else {
+                    var name = document.getElementById("Name").value;
+                    var quantity = document.getElementById("Quantity").value;
+                    var price = document.getElementById("Price").value;
+
+                    var km = document.getElementsByClassName("TinhTrang");
+                    let km1 = "";
+                    for (let i = 0; i < km.length; i++) {
+                        if (km[i].checked === true) {
+                            km1 += km[i].value + "";
+                        }
+                    }
+
+                    var result = "Tên Sản Phẩm: " + name + "<br>" +
+                        "Số Lượng: " + quantity + "<br>" +
+                        "Price: " + price + "<br>" +
+                        "Khuyến Mãi:" + km1;
+                    document.getElementById("KQ").innerHTML = result;
+                }
+
+
+            }
+
+
+        </script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+

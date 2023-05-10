@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script >
+        function ttsp(){
+    let res = document.getElementById("res1");
+    res.innerHTML = "";
+
+    let ten = document.getElementById("ten");
+    res.innerHTML += "</br>Tên sản phẩm:" + ten.value;
+
+    let soluongsp = document.getElementById("sl");
+    res.innerHTML += "</br>số lượng sản phẩm:" + soluongsp.value;
+
+    let giathanh  = document.getElementById("gtsp");
+    res.innerHTML += "</br>Giá Thành:" + giathanh.value;
+
+    let khuyenmai = document.getElementById("km");
+    res.innerHTML += "</br>Khuyến Mãi:" + khuyenmai.value;
+
+
+}
+function cong(){
+    let res = document.getElementById("res2");
+    res.innerHTML="";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let cong = num1 + num2 ;
+    res.innerHTML += "phép cộng:" + num1 + "+" + num2 + "=" + cong;
+}
+function tru(){
+    let res = document.getElementById("res2");
+    res.innerHTML="";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let tru = num1 - num2 ;
+    res.innerHTML += "phép trừ:" + num1 + "-" + num2 + "=" + tru;
+}
+function nhan(){
+    let res = document.getElementById("res2");
+    res.innerHTML="";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let nhan = num1 * num2 ;
+    res.innerHTML += "phép nhân:" + num1 + "*" + num2 + "=" + nhan;
+}
+function chia(){
+    let res = document.getElementById("res2");
+    res.innerHTML="";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let chia = num1 / num2 ;
+    res.innerHTML += "phép chia:" + num1 + "/" + num2 + "=" + chia;
+}
+function mu(){
+    let res = document.getElementById("res2");
+    res.innerHTML="";
+
+    let num1 = parseInt(document.getElementById("num1").value);
+    let num2 = parseInt(document.getElementById("num2").value);
+
+    let mu = num1 ^ num2 ;
+    res.innerHTML += "phép cộng:" + num1 + "^" + num2 + "=" + mu;
+}
+function mau(){
+    let maunen = document.getElementById("maunen");
+    res.innerHTML += maunen.value;
+    res.style.backgroundColor = maunen.value; 
+}
+    </script>
+    <title>15_Nguyễn Minh Tân</title>
+    <style>
+        .btn{
+            width: 200px;
+            padding-right: 5px;
+            border: 1px;
+            background-color: 
+
+
+        }
+        a{
+            text-decoration: none;
+
+        }
+        a:hover{
+            text-decoration: none;
+            color: #5f00cb;
+        }
+        .ten{
+            padding: 100px;
+            font-weight: 100;
+            font-size: bold;
+            color: red;
+            
+        }
+        .row{
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="row mHeader" id="mHeader">
+            <div class="col-sm-8">
+                <img src="./aptechlg.png" alt="logo" width="100">
+                <label for="logo">15_nguyễn Minh Tân</label>
+            </div>
+            <div class="col-sm-4">
+                <a href="$producf">producf</a>
+                <a href="#math">math</a>
+                <a href="#theme">theme</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="row">
+                    
+                    <div class="col-sm-6">
+                        <label  class="input-group input-group-sm"> Tên Sản Phẩm :</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" id="ten" placeholder="tên sản phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="input-group input-group-sm" > Số Lượng :</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" id="sl" placeholder="Số lượng sản phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                  
+                    <div class="col-sm-6">
+                        <label  class="input-group input-group-sm"> Giá thành sản phẩm :</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" id="gtsp" placeholder="giá thành sản phẩm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                    <label for="km">khuyến mãi:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <select name="km" id="km">
+                            <option value="co" id="co"  >có</option>
+                            <option value="khong" id="khong" >không</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 offset-sm-7"  >
+                        <input class="btn btn-danger btn-lg" type="submit" id="submit" value="submit" onclick="ttsp()">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-5">
+                <h4>kết quả:</h4>
+                <Label class="res1" id="res1" ></Label>
+            </div>
+        </div>
+        <div class="row">
+            <h1>mathematics</h1>
+            <div class="col-sm-5">
+                <span>số thứ nhất:</span><br>
+                <input type="number" id="num1" value="nhập số thứ nhất"><br>
+                <span>số thứ hai:</span><br>
+                <input type="number" id="num2" value="nhập số thứ hai"><br>
+                <input type="button" class="btn btn-primary btn-lg ws input-group" value="Cộng" onclick="cong()"></br>
+                <input type="button" class="btn btn-secondary btn-lg ws input-group" value="trừ" onclick="tru()"></br>
+                <input type="button" class="btn btn-success btn-lg ws input-group" value="nhân" onclick="nhan()"></br>
+                <input type="button" class="btn btn-info btn-lg ws input-group" value="chia" onclick="chia()"></br>
+                <input type="button" class="btn btn-danger btn-lg ws input-group" value="mu" onclick="mu()"></br>
+            </div>
+            <div class="col-sm-7">
+                <h4> Kết quả:</h4>
+                <label class="res2" id="res2"></label>
+            </div>
+        </div>
+        <div class="row" id="maunen">
+            <h1>theme:</h1>
+            <div class="col-sm-12">
+                <input type="color" id="color" name="color"><br>
+                <input type="button" value="đổi mầu nền" onclick="mau()">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

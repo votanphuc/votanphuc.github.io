@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>25_Nguyen Quoc Anh Khoi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        div {
+            border: none 0.5px;
+        }
+
+        .webName {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 40px;
+            color: red;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+         .mHeader {
+            padding-bottom: 50px;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .row {
+            padding: 5px;
+        }
+
+        a:hover {
+            color:  #5f00cb;
+            background-color: transparent;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+
+        .sbmt1 {
+            background-color: #8DEEEE;
+            color: black;
+        }
+    </style>
+    <script>
+        function showInfo() {
+            let res = document.getElementById("res1"); // lấy thẻ theo id res1 để chuẩn bị in ra kết quả
+            res.innerHTML = "";
+
+            let ten = document.getElementById("name");
+            res.innerHTML += "<br/>Tên sản phẩm: " + ten.value;
+
+            let soLuong = document.getElementById("soLuong");
+            res.innerHTML += "<br/>Số lượng: " + soLuong.value;
+
+            let price = document.getElementById("price");
+            res.innerHTML += "<br/>Giá tiền: " + price.value;
+
+            let km = document.getElementById("km");
+            res.innerHTML += "<br/>Khuyến mãi: " + km.value;
+        }
+
+        function cong() {
+            let res = document.getElementById("res2");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            let cong = num1 + num2;
+            res.innerHTML += "Phép cộng: " + num1 + "+" + num2 + "=" + cong;
+        }
+
+        function tru() {
+            let res = document.getElementById("res2");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            let tru = num1 - num2;
+            res.innerHTML += "Phép trừ: " + num1 + "-" + num2 + "=" + tru;
+        }
+
+        function nhan() {
+            let res = document.getElementById("res2");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            let nhan = num1 * num2;
+            res.innerHTML += "Phép nhân: " + num1 + "*" + num2 + "=" + nhan;
+        }
+
+        function chia() {
+            let res = document.getElementById("res2");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            let chia = num1 / num2;
+            res.innerHTML += "Phép chia: " + num1 + "/" + num2 + "=" + chia;
+        }
+
+        function somu() {
+            let res = document.getElementById("res2");
+            res.innerHTML = "";
+
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+
+            let mu = num1;
+            for (let i = 1; i < num2; i++) {
+                mu *= num1;
+            }
+            res.innerHTML += "Phép mũ: " + num1 + "^" + num2 + "=" + mu;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+    <div class="row mHeader" id="mHeader">
+        <div class="col-sm-8">
+            <img src="./aptechlg.png" height="100px" alt="Logo trang web">
+            <span class="webName">25 - Ng Quoc Anh Khoi</span>
+        </div>
+        <div class="col-sm-4">
+            <div class="topnav-right">
+                <a href="#personalInfo">Info</a> |
+                <a href="#math">Math</a> |
+                <a href="#theme">Theme</a> |
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="productInfo">
+        <h1>Products</h1>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-7">
+                    <label for="name">Tên sản phẩm: </label>
+                </div>
+                <div class="col-sm-5">
+                    <input class="input-group input-group-sm" id="name" type="text" placeholder="Macbook Siêu cấp VIP Pro M5">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <label for="name">Số lượng: </label>
+                </div>
+                <div class="col-sm-5">
+                    <input class="input-group input-group-sm" id="soLuong" type="number" placeholder="4">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <label for="name">Giá tiền: </label>
+                </div>
+                <div class="col-sm-5">
+                    <input class="input-group input-group-sm" id="price" type="number" placeholder="50.000.000">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <label>Khuyến mãi: </label>
+                </div>
+                <div class="col-sm-5">
+                    <select id="km" class="form-select form-select-sm" aria-label=".form-select-sm">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 offset-sm-9">
+                    <input type="submit" id="submit" class="btn w-100 sbmt1" value="Submit" onclick="showInfo()">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader">Kết quả: </h5>
+            <label class="res1" id="res1"></label>
+        </div>
+    </div>
+
+    <div class="row" id="math">
+        <h2>Mathematics: </h2>
+        <div class="col-sm-4">
+            <input type="number" id="num1" placeholder="Nhập số thứ nhất"><br>
+            <input type="number" id="num2" placeholder="Nhập số thứ hai"><br>
+            <input type="button" class="btn btn-primary btn-lg ws" value="Cộng" onclick="cong()">
+            <br>
+            <input type="button" class="btn btn-secondary btn-lg ws" value="Trừ" onclick="tru()">
+            <br>
+            <input type="button" class="btn btn-success btn-lg ws" value="Nhân" onclick="nhan()">
+            <br>
+            <input type="button" class="btn btn-info btn-lg ws" value="Chia" onclick="chia()">
+            <br>
+            <input type="button" class="btn btn-danger btn-lg ws" value="Mũ" onclick="somu()">
+            <br>
+        </div>
+        <div class="col-sm-8">
+            <h5 id="resHeader2">Kết quả: </h5>
+            <label class="res" id="res2"></label>
+        </div>
+    </div>
+
+</body>
+</html>

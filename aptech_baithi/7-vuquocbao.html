@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="./7-vuquocbao.js"></script>
+        <title>7-VuQuocBao</title>
+    </head>
+    <style>
+        span{
+            font-size: 40px;
+            color: red;
+        }
+        .topnav-right{
+            float: right;
+        }
+        a{
+            text-decoration: none;
+            
+        }
+        .background {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        }
+    </style>
+    <div>
+        <div class="container">
+            <div class="row aa" id="aa">
+                <div class="col-sm-7">
+                    <img src="./aptechlg.png" alt="aptech" height="80px">
+                    <span>7-VuQuocBao</span>
+                </div>
+                <div class="col-sm-4">
+                    <div class="topnav-right">
+                        <a href="#product">product</a> |
+                        <a href="#math">math</a> |
+                        <a href="#theme">theme</a> |
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="Products">
+            <h1>Products</h1>
+            <div class="col-sm-3">
+                <label for="name">Tên Sản Phẩm: </label>
+            </div>
+            <div class="col-sm-4">
+                <input class="input-group input-group-sm" id="name" type="text" placeholder="Tên Sản Phẩm">
+            </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="sl">số lượng</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="input-group input-group-sm" id="sl" type="number"
+                    placeholder="số lượng">       
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="gt">Giá Thành</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="input-group input-group-sm" id="gt" type="number"
+                       placeholder="Giá">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="gg">Giảm Giá</label>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-between">
+                <div>
+                    <input type="checkbox" id="co" class="coko" value="có">
+                    <label for="co">có</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="docsach" class="coko" value="Không">
+                    <label for="khong">Không</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 offset-sm-3">
+                <input type="submit" id="submit" class="btn btn-danger w-20" value="Submit" onclick="showInfo()">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader">Kết quả: </h5>
+            <label class="res" id="res1"></label>
+        </div>
+    </div>
+    </div>
+    <div>
+        <h1>Mathematics </h1>
+    </div>
+    <div>
+        <input id="num1" type="number"><br>
+        <input id="num2" type="number"><br>
+        <input type="button" class="btn btn-primary w-50" value="Cộng" id="res3" 
+        onclick="cong()"><br>
+        <input type="button" class="btn btn-secondary w-50" value="Trừ"><br>
+        <input type="button" class="btn btn-success w-50" value="Nhân"><br>
+        <input type="button" class="btn btn-info w-50" value="Chia"><br>
+        <input type="button" class="btn btn-danger w-50" value="Mũ"><br>
+        <input type="button" class="btn btn-dark w-50" value="Bội số"><br>
+        <div class="col-sm-5">
+            <h3>Kết Quả</h3>
+            <label class="res" id="res2"></label>
+        </div>
+    </div>
+    <div id="theme">
+        <h5>theme</h5>
+        <div class="background" id="theme">
+            <input type="color" id="mau" class="mau" value="#ffffff">
+        </div>
+    </div>
+    </body>
+</html>
