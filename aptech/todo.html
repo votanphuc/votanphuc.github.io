@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>TODO: </title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>TODO:</h1>
+<input id="inputTodo" type="text" placeholder="Enter things todo"/>
+<input type="submit" value="Add" onclick="addItem()">
+<ul id="todoList"></ul>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script>
+    var id = 1;
+
+    function addItem() {
+        var item = $("input#inputTodo").val();
+        if (item === "") {
+            return;
+        }
+
+        $("#todoList").append(
+            `<li id="li${id}">
+            <input type="checkbox" id="itemCb${id}" name="itemCb${id}" onclick="finishItem(${id})">
+            <label for="itemCb${id}" id="labelCb${id}"> ${item} </label>
+            <input type="button" id="removeBt${id}" onclick="removeItem(${id})" value="x">
+        </li>`
+        );
+
+        id++;
+        $("input#inputTodo").val("");
+    }
+
+    function finishItem(index) {
+        let liSelected = $("#li"+ index);
+
+        if ($("#itemCb"+ index).is(":checked")) {
+            liSelected.css("color", "gray");
+            liSelected.css("text-decoration", "line-through");
+        } else {
+            liSelected.css("color", "black");
+            liSelected.css("text-decoration", "none");
+        }
+    }
+
+    function removeItem(index) {
+        $("#li"+ index).remove();
+    }
+
+
+    function handleEnter(event) {
+        if (event.keyCode == 13 && event.target.tagName.toLowerCase() === "input") {
+            addItem();
+        }
+    }
+
+    document.onkeydown = handleEnter;
+</script>
+</body>
+
+</html>
