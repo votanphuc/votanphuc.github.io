@@ -83,6 +83,15 @@
         </div>
     </div>
 
+    <br>
+    <br>
+    <span id="head">Cho bác nào muốn custom logo màu mè</span>
+    <input type="color" name="font" id="font" value="#ffffff">
+    <input type="color" name="bg" id="bg"  value="#0313B0">
+    <input type="button" onclick="execColor()" value="QUẤT" />
+    
+    
+
     <!-- <img src="logoreal.png" width="300px"> -->
 
     <script>
@@ -108,14 +117,23 @@
             $("#right").html($("#rightI").val());
 
             let mw = $("#main").width();
+            
+            let losize = mw + 60;
+            let dis = (losize - mw) / 2;
+            $("#logo").css("width", losize);
+            $("#left").css("left", dis);
+            $("#right").css("right", dis);
+
             if (mw > 300) {
                 alert("Gõ phần chính hơi dài rồi bạn eiii...!!!");
                 return;
             }
+        }
 
-            let dis = (300 - mw) / 2;
-            $("#left").css("left", dis);
-            $("#right").css("right", dis);
+
+        function execColor() {
+            $("#logo").css("background-color", $("#bg").val());
+            $("#logo").css("color", $("#font").val());
         }
 
     </script>
