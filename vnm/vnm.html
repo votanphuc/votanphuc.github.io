@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>Create logo</title>
+    <style>
+        @font-face {
+            font-family: "vinamilk";
+            src: url(VNMSansStd.otf)
+        }
+
+        @font-face {
+            font-family: "vinamilk-reg";
+            src: url(VNMSansDisplayRegular.otf)
+        }
+
+        @font-face {
+            font-family: "vinamilk-bold";
+            src: url(VNMSansDisplayBold.otf)
+        }
+
+        body {
+            padding: 10px;
+            font-family: "vinamilk";
+        }
+
+        #logo {
+            font-family: "vinamilk-bold";
+            width: 300px;
+            background-color: #0313B0;
+            color: white;
+            text-align: center;
+            padding: 120px;
+        }
+
+        #main {
+            font-size: 82px;
+        }
+
+        #part {
+            font-size: 22px;
+            position: relative;
+        }
+
+        #left {
+            position: absolute;
+            top: -22px;
+            left: 40.5px;
+        }
+
+        #right {
+            position: absolute;
+            top: -22px;
+            right: 40.5px;
+        }
+
+        #head {
+            font-size: 23px;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="head">Tạo logo của riêng bạn theo phong cách Vinamilk</span>
+    <a href="http://facebook.com/votanphuc">by Phúc Võ</a>
+    <br>
+    <input type="text" id="mainI" placeholder="Nội dung chính" />
+    <input type="text" id="leftI" placeholder="Phần bên trái" />
+    <input type="text" id="rightI" placeholder="Phần bên phải" />
+    <input type="button" onclick="exec()" value="QUẤT" />
+    <br>
+    <br>
+    <div id="logo">
+        <label id="main">Vinamilk</label>
+        <br>
+        <div id="part">
+            <label id="left">EST</label>
+            <label id="right">1976</label>
+        </div>
+    </div>
+
+    <!-- <img src="logoreal.png" width="300px"> -->
+
+    <script>
+        function exec() {
+            console.log ("Code tui làm chơi chơi đừng có copy lung tung nhaaa :3")
+            if ($("#mainI").val() == "") {
+                alert("Điền nội dung chính vô dùm! (eg. Vinamilk)");
+                return;
+            }
+
+            if ($("#leftI").val() == "") {
+                alert("Điền phần bên trái! (eg. EST)");
+                return;
+            }
+
+            if ($("#rightI").val() == "") {
+                alert("Phần bên phải còn trống kìa! (eg. 1976)");
+                return;
+            }
+
+            $("#main").html($("#mainI").val());
+            $("#left").html($("#leftI").val());
+            $("#right").html($("#rightI").val());
+
+            let mw = $("#main").width();
+            if (mw > 300) {
+                alert("Gõ phần chính hơi dài rồi bạn eiii...!!!");
+                return;
+            }
+
+            let dis = (300 - mw) / 2;
+            $("#left").css("left", dis);
+            $("#right").css("right", dis);
+        }
+
+    </script>
+</body>
+
+</html>
