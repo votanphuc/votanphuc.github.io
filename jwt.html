@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JWT Decoder</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-color: #f0f8ff; /* Light blue for a colorful look */
+    }
+    .jwt-decoder {
+      margin-top: 20px;
+    }
+    .form-control {
+      border-color: #007bff;
+    }
+    textarea {
+      background-color: #e6ffe6;
+    }
+    .btn-decode {
+      background-color: #28a745;
+      color: white;
+      border: none;
+    }
+    .btn-decode:hover {
+      background-color: #218838;
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+    }
+    .history-item {
+      background-color: #fffbea;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Disclaimer at the Top -->
+    <div class="alert alert-warning mt-3" role="alert">
+      This tool does not validate the JWT signature. Do not use its contents for authentication or authorization purposes; it is intended solely for decoding and inspecting the payload.
+    </div>
+
+    <!-- Row with JWT input, decode button, and result textarea in one line -->
+    <div class="row jwt-decoder align-items-center">
+      <div class="col-md-4">
+        <input 
+          type="text" 
+          id="jwtInput" 
+          class="form-control" 
+          placeholder="Enter JWT token" 
+        />
+      </div>
+      <div class="col-md-2 text-center">
+        <button id="decodeBtn" class="btn btn-decode">Decode JWT</button>
+      </div>
+      <div class="col-md-6">
+        <textarea 
+          id="resultArea" 
+          class="form-control" 
+          rows="3" 
+          placeholder="Decoded result here"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Accordion for JWT History -->
+    <div class="accordion mt-4" id="historyAccordion">
+      <div class="card">
+        <div class="card-header" id="headingHistory">
+          <h2 class="mb-0">
+            <button 
+              class="btn btn-link text-white" 
+              type="button" 
+              data-toggle="collapse" 
+              data-target="#collapseHistory" 
+              aria-expanded="true" 
+              aria-controls="collapseHistory"
+            >
+              JWT History (Click to toggle)
+            </button>
+          </h2>
+        </div>
+        <div 
+          id="collapseHistory" 
+          class="collapse" 
+          aria-labelledby="headingHistory" 
+          data-parent="#historyAccordion"
+        >
+          <div class="card-body" id="historyList">
+            <!-- Decoded JWT history items will be appended here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript to decode JWT and store history -->
+  <script>
+    // Function to decode the JWT token
+    function decodeJWT(token) {
+      try {
+        // Split the token by dots (should have 3 parts)
+        var parts = token.split('.');
+        if (parts.length !== 3) {
+          return 'Invalid JWT token. It should include header, payload, and signature.';
+        }
+        var payload = parts[1];
+
+        // Replace URL-safe characters.
+        payload = payload.replace(/-/g, '+').replace(/_/g, '/');
+
+        // Add padding if missing.
+        switch (payload.length % 4) {
+          case 0:
+            break;
+          case 2:
+            payload += '==';
+            break;
+          case 3:
+            payload += '=';
+            break;
+          default:
+            return 'Invalid base64 string in JWT payload.';
+        }
+
+        // Decode the Base64 string and format the JSON.
+        var decoded = atob(payload);
+        var jsonPayload = JSON.parse(decoded);
+        return JSON.stringify(jsonPayload, null, 4);
+      } catch (e) {
+        return 'Error decoding token: ' + e.message;
+      }
+    }
+
+    // Event listener for the decode button click
+    document.addEventListener('DOMContentLoaded', function () {
+      var decodeBtn = document.getElementById('decodeBtn');
+      decodeBtn.addEventListener('click', function () {
+        var jwtToken = document.getElementById('jwtInput').value.trim();
+        if (jwtToken === '') {
+          alert('Please enter a JWT token.');
+          return;
+        }
+        var decodedResult = decodeJWT(jwtToken);
+        document.getElementById('resultArea').value = decodedResult;
+
+        // Append the decoded result to the JWT history
+        var historyList = document.getElementById('historyList');
+        var historyItem = document.createElement('div');
+        historyItem.className = 'mb-3 p-2 border rounded history-item';
+        var currentTime = new Date().toLocaleString();
+        historyItem.innerHTML = '<strong>' + currentTime + ':</strong><pre>' + decodedResult + '</pre>';
+        historyList.prepend(historyItem);
+      });
+    });
+  </script>
+</body>
+</html>
