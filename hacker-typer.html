@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            background: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #baseline {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff4444;
+        }
+
+        .falling-word {
+            position: absolute;
+            font-size: 24px;
+            color: #00ff00;
+            transition: top 0.05s linear;
+            white-space: nowrap;
+            max-width: 90vw;
+            overflow: visible;
+        }
+
+        .falling-word.active {
+            color: #ffff00;
+            font-weight: bold;
+        }
+
+        #input-box {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            padding: 10px;
+            font-size: 20px;
+            font-family: monospace;
+            background: #2a2a2a;
+            border: 2px solid #00ff00;
+            color: #fff;
+            text-align: center;
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+
+        #game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+        }
+
+        #game-over h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #restart-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-family: monospace;
+            background: #00ff00;
+            border: none;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        #restart-btn:hover {
+            background: #00cc00;
+        }
+
+        #setup-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 600px;
+        }
+
+        #setup-screen h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #word-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-family: monospace;
+            background: #2a2a2a;
+            border: 2px solid #00ff00;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #start-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-family: monospace;
+            background: #00ff00;
+            border: none;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        #start-btn:hover {
+            background: #00cc00;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="setup-screen">
+        <h1>TYPING GAME</h1>
+        <p class="info">Enter words separated by commas</p>
+        <input type="text" id="word-input" placeholder="sontung, mtp, vietnam, saigon, ken, beer, nhau, java, phuc, game, vinh, nguyen, vo" value="sontung, mtp, vietnam, saigon, ken, beer, nhau, java, phuc, game, vinh, nguyen, vo, xlkhongcogivui">
+        <br>
+        <button id="start-btn">START GAME</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <div id="score">Score: 0</div>
+        <div id="baseline"></div>
+        <input type="text" id="input-box" autocomplete="off">
+        <div id="game-over">
+            <h1>GAME OVER</h1>
+            <p id="final-score"></p>
+            <button id="restart-btn">RESTART</button>
+        </div>
+    </div>
+
+    <script>
+        let wordList = [];
+
+        let score = 0;
+        let gameActive = false;
+        let fallingWords = [];
+        let spawnTimeout;
+        let moveInterval;
+
+        // Difficulty settings
+        function getSpawnInterval() {
+            // Start at 2500ms, decrease by 100ms every 5 points, minimum 800ms
+            const interval = Math.max(800, 2500 - Math.floor(score / 5) * 100);
+            return interval;
+        }
+
+        function getFallSpeed() {
+            // Start at 2px, increase by 0.5px every 10 points, maximum 6px
+            const speed = Math.min(6, 2 + Math.floor(score / 10) * 0.5);
+            return speed;
+        }
+
+        const setupScreen = document.getElementById('setup-screen');
+        const wordInput = document.getElementById('word-input');
+        const startBtn = document.getElementById('start-btn');
+        const gameContainer = document.getElementById('game-container');
+        const inputBox = document.getElementById('input-box');
+        const scoreDisplay = document.getElementById('score');
+        const gameOverScreen = document.getElementById('game-over');
+        const finalScoreDisplay = document.getElementById('final-score');
+        const restartBtn = document.getElementById('restart-btn');
+        const baseline = document.getElementById('baseline');
+
+        function startGame() {
+            score = 0;
+            fallingWords = [];
+            gameActive = true;
+            gameOverScreen.style.display = 'none';
+            inputBox.value = '';
+            inputBox.disabled = false;
+            inputBox.focus();
+            updateScore();
+
+            // Clear existing words
+            document.querySelectorAll('.falling-word').forEach(el => el.remove());
+
+            // Move words every 50ms
+            moveInterval = setInterval(moveWords, 50);
+
+            // Spawn first word immediately
+            spawnWord();
+        }
+
+        function spawnWord() {
+            if (!gameActive) return;
+
+            const word = wordList[Math.floor(Math.random() * wordList.length)];
+            const wordElement = document.createElement('div');
+            wordElement.className = 'falling-word';
+            wordElement.textContent = word;
+            wordElement.style.top = '0px';
+            wordElement.style.visibility = 'hidden';
+
+            // Append first to measure width
+            gameContainer.appendChild(wordElement);
+
+            // Calculate safe position to prevent overflow
+            const wordWidth = wordElement.offsetWidth;
+            const maxLeft = Math.max(0, window.innerWidth - wordWidth - 20);
+            wordElement.style.left = Math.random() * maxLeft + 'px';
+            wordElement.style.visibility = 'visible';
+
+            fallingWords.push({
+                element: wordElement,
+                text: word,
+                top: 0
+            });
+
+            // Highlight first word as active
+            if (fallingWords.length === 1) {
+                wordElement.classList.add('active');
+            }
+
+            // Schedule next spawn with dynamic interval based on current score
+            spawnTimeout = setTimeout(spawnWord, getSpawnInterval());
+        }
+
+        function moveWords() {
+            if (!gameActive) return;
+
+            const baselineY = baseline.offsetTop;
+            const speed = getFallSpeed();
+
+            fallingWords.forEach((wordObj, index) => {
+                wordObj.top += speed;
+                wordObj.element.style.top = wordObj.top + 'px';
+
+                // Check if word reached baseline
+                if (wordObj.top >= baselineY - 30) {
+                    endGame();
+                }
+            });
+        }
+
+        function updateScore() {
+            scoreDisplay.textContent = `Score: ${score}`;
+        }
+
+        function endGame() {
+            gameActive = false;
+            clearTimeout(spawnTimeout);
+            clearInterval(moveInterval);
+            inputBox.disabled = true;
+            gameOverScreen.style.display = 'block';
+            finalScoreDisplay.textContent = `Final Score: ${score}`;
+        }
+
+        inputBox.addEventListener('input', (e) => {
+            if (!gameActive || fallingWords.length === 0) return;
+
+            const currentWord = fallingWords[0];
+            const typed = e.target.value.trim().toLowerCase();
+
+            if (currentWord.text === typed) {
+                // Correct word typed
+                score++;
+                updateScore();
+                currentWord.element.remove();
+                fallingWords.shift();
+                inputBox.value = '';
+
+                // Highlight next word as active
+                if (fallingWords.length > 0) {
+                    fallingWords[0].element.classList.add('active');
+                }
+            }
+        });
+
+        function parseWords() {
+            const input = wordInput.value;
+            wordList = input
+                .split(',')
+                .map(word => word.trim().replace(/\s+/g, '').toLowerCase())
+                .filter(word => word.length > 0);
+
+            return wordList.length > 0;
+        }
+
+        function showGame() {
+            setupScreen.style.display = 'none';
+            gameContainer.style.display = 'block';
+            inputBox.focus();
+        }
+
+        function showSetup() {
+            setupScreen.style.display = 'block';
+            gameContainer.style.display = 'none';
+            gameOverScreen.style.display = 'none';
+        }
+
+        startBtn.addEventListener('click', () => {
+            if (parseWords()) {
+                showGame();
+                startGame();
+            } else {
+                alert('Please enter at least one word');
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            showSetup();
+        });
+    </script>
+</body>
+</html>
