@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAVATO Architecture - Thiết Kế & Xây Dựng Nhà Đẹp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>HAVATO</h1>
+                    <span>Architecture</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
+                    <li><a href="#projects" class="nav-link">Dự Án</a></li>
+                    <li><a href="#services" class="nav-link">Dịch Vụ</a></li>
+                    <li><a href="#about" class="nav-link">Giới Thiệu</a></li>
+                    <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600');">
+                <div class="hero-content">
+                    <h1 class="hero-title">Kiến Tạo Không Gian Sống Đẳng Cấp</h1>
+                    <p class="hero-subtitle">Thiết kế và xây dựng nhà đẹp, hiện đại, bền vững</p>
+                    <a href="#contact" class="btn btn-primary">Tư Vấn Miễn Phí</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Dịch Vụ Của Chúng Tôi</span>
+                <h2 class="section-title">Giải Pháp Toàn Diện</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Thiết Kế Kiến Trúc</h3>
+                    <p>Thiết kế kiến trúc nhà ở, biệt thự, nhà phố hiện đại, đẹp mắt và tối ưu công năng</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>Thiết Kế Nội Thất</h3>
+                    <p>Thiết kế nội thất sang trọng, tinh tế, phù hợp với phong cách sống hiện đại</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Thi Công Xây Dựng</h3>
+                    <p>Thi công xây dựng trọn gói, đảm bảo tiến độ, chất lượng và chi phí hợp lý</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>Cải Tạo & Sửa Chữa</h3>
+                    <p>Cải tạo, nâng cấp không gian cũ, mang đến diện mạo mới cho ngôi nhà của bạn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Portfolio</span>
+                <h2 class="section-title">Dự Án Tiêu Biểu</h2>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="villa">Biệt Thự</button>
+                <button class="filter-btn" data-filter="townhouse">Nhà Phố</button>
+                <button class="filter-btn" data-filter="interior">Nội Thất</button>
+                <button class="filter-btn" data-filter="special">Đặc Biệt</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="villa">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Modern Villa">
+                        <div class="project-overlay">
+                            <h3>Biệt Thự Hiện Đại Quận 2</h3>
+                            <p>Diện tích: 350m² | 2023</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="townhouse">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Townhouse">
+                        <div class="project-overlay">
+                            <h3>Nhà Phố Tân Cổ Điển</h3>
+                            <p>Diện tích: 180m² | 2023</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="interior">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800" alt="Interior Design">
+                        <div class="project-overlay">
+                            <h3>Nội Thất Căn Hộ Vinhomes</h3>
+                            <p>Diện tích: 120m² | 2023</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="villa">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="Villa">
+                        <div class="project-overlay">
+                            <h3>Biệt Thự Vườn Đồng Nai</h3>
+                            <p>Diện tích: 500m² | 2022</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="special">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800" alt="Special Project">
+                        <div class="project-overlay">
+                            <h3>Showroom Kiến Trúc</h3>
+                            <p>Diện tích: 400m² | 2023</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="townhouse">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800" alt="Modern Townhouse">
+                        <div class="project-overlay">
+                            <h3>Nhà Phố Hiện Đại Bình Thạnh</h3>
+                            <p>Diện tích: 200m² | 2022</p>
+                            <a href="#" class="btn-view">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800" alt="About HAVATO">
+                </div>
+                <div class="about-text">
+                    <span class="section-subtitle">Về Chúng Tôi</span>
+                    <h2 class="section-title">HAVATO Architecture</h2>
+                    <p>Với hơn 10 năm kinh nghiệm trong lĩnh vực thiết kế và xây dựng, HAVATO Architecture tự hào là đơn vị tiên phong trong việc kiến tạo những không gian sống hiện đại, bền vững và đẳng cấp.</p>
+                    <p>Chúng tôi tin rằng mỗi công trình không chỉ là nơi ở, mà còn là nơi thể hiện phong cách sống, cá tính và giá trị của gia chủ. Đội ngũ kiến trúc sư giàu kinh nghiệm của chúng tôi luôn sẵn sàng lắng nghe, thấu hiểu và biến ước mơ của bạn thành hiện thực.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Dự Án Hoàn Thành</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Năm Kinh Nghiệm</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Khách Hàng Hài Lòng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Quy Trình Làm Việc</span>
+                <h2 class="section-title">4 Bước Đơn Giản</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Tư Vấn & Khảo Sát</h3>
+                    <p>Lắng nghe nhu cầu, khảo sát thực địa và tư vấn giải pháp tối ưu</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Thiết Kế Ý Tưởng</h3>
+                    <p>Phát triển ý tưởng thiết kế, bản vẽ 3D và báo giá chi tiết</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Thi Công Xây Dựng</h3>
+                    <p>Triển khai thi công theo đúng tiến độ, chất lượng cam kết</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Nghiệm Thu & Bàn Giao</h3>
+                    <p>Nghiệm thu công trình, bàn giao và bảo hành dài hạn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Khách Hàng Nói Gì</span>
+                <h2 class="section-title">Đánh Giá Từ Khách Hàng</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Đội ngũ HAVATO rất chuyên nghiệp và tận tâm. Ngôi nhà của tôi được thiết kế đẹp mắt, thi công chất lượng và đúng tiến độ. Rất hài lòng!"</p>
+                    <div class="testimonial-author">
+                        <strong>Anh Minh Tuấn</strong>
+                        <span>Biệt thự Quận 2, TP.HCM</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Thiết kế nội thất căn hộ của tôi vượt quá mong đợi. HAVATO đã hiểu rõ phong cách tôi muốn và tạo ra không gian sống hoàn hảo."</p>
+                    <div class="testimonial-author">
+                        <strong>Chị Thanh Hương</strong>
+                        <span>Căn hộ Vinhomes, TP.HCM</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Chi phí hợp lý, chất lượng tuyệt vời. Tôi đã giới thiệu HAVATO cho nhiều người bạn và họ đều rất hài lòng."</p>
+                    <div class="testimonial-author">
+                        <strong>Anh Đức Anh</strong>
+                        <span>Nhà phố Bình Thạnh, TP.HCM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="section-subtitle">Liên Hệ</span>
+                    <h2 class="section-title">Bắt Đầu Dự Án Của Bạn</h2>
+                    <p>Hãy để chúng tôi giúp bạn biến ước mơ về ngôi nhà lý tưởng thành hiện thực.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div>
+                                <strong>Địa Chỉ</strong>
+                                <p>123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <div>
+                                <strong>Điện Thoại</strong>
+                                <p>0909 123 456</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <div>
+                                <strong>Email</strong>
+                                <p>contact@havato.vn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" " required>
+                            <label for="name">Họ và tên</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder=" " required>
+                            <label for="phone">Số điện thoại</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Chọn dịch vụ</option>
+                                <option value="architecture">Thiết kế kiến trúc</option>
+                                <option value="interior">Thiết kế nội thất</option>
+                                <option value="construction">Thi công xây dựng</option>
+                                <option value="renovation">Cải tạo & sửa chữa</option>
+                            </select>
+                            <label for="service">Dịch vụ quan tâm</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" placeholder=" " required></textarea>
+                            <label for="message">Nội dung</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi Yêu Cầu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>HAVATO Architecture</h3>
+                    <p>Kiến tạo không gian sống đẳng cấp với đam mê và tận tâm</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liên Kết</h4>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#projects">Dự Án</a></li>
+                        <li><a href="#services">Dịch Vụ</a></li>
+                        <li><a href="#about">Giới Thiệu</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Dịch Vụ</h4>
+                    <ul>
+                        <li><a href="#">Thiết kế kiến trúc</a></li>
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công xây dựng</a></li>
+                        <li><a href="#">Cải tạo & sửa chữa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Đăng Ký Nhận Tin</h4>
+                    <p>Nhận thông tin mới nhất về dự án và ưu đãi</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HAVATO Architecture. All rights reserved.</p>
+                <p>Designed with ❤️ by HAVATO Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
