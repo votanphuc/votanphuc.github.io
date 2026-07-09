@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTX IDM Version Checker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.75rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover:not(:disabled) {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .status-message.loading {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        thead {
+            background: #f7f7f7;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem;
+            font-weight: 600;
+            color: #444;
+            border-bottom: 2px solid #ddd;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        .env-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .version {
+            font-family: 'Courier New', monospace;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status.success {
+            color: #28a745;
+        }
+
+        .status.error {
+            color: #dc3545;
+        }
+
+        .status.loading {
+            color: #ffc107;
+        }
+
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .last-updated {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .cors-notice {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #856404;
+        }
+
+        .cors-notice strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BTX IDM Version Checker</h1>
+        <div class="subtitle">Banqup Identity Management - Frontend Versions</div>
+
+        <div class="cors-notice" id="corsNotice" style="display: none;">
+            <strong>⚠️ CORS Notice</strong>
+            If you see errors, this page may be blocked by CORS policy.
+            For production use, host this on the same domain or use a backend proxy.
+        </div>
+
+        <div class="controls">
+            <button id="refreshBtn" onclick="fetchAllVersions()">
+                <span>🔄</span>
+                <span>Refresh Versions</span>
+            </button>
+            <button id="autoRefreshBtn" onclick="toggleAutoRefresh()">
+                <span>⏱️</span>
+                <span id="autoRefreshText">Enable Auto-Refresh</span>
+            </button>
+        </div>
+
+        <div id="statusMessage" class="status-message loading" style="display: none;">
+            Fetching versions...
+        </div>
+
+        <table id="versionsTable">
+            <thead>
+                <tr>
+                    <th>Environment</th>
+                    <th>Region</th>
+                    <th>Version</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #888;">
+                        Click "Refresh Versions" to fetch data
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <div class="last-updated" id="lastUpdated">Never updated</div>
+        </div>
+    </div>
+
+    <script>
+        const ENVIRONMENTS = [
+            { name: 'DEV', region: 'BE', url: 'https://app.dev.btx.banqup.com/idm/l1?country=BE&partner=btx' },
+            { name: 'TEST', region: 'BE', url: 'https://app.test.btx.banqup.com/idm/l1?country=BE&partner=btx' },
+            { name: 'UAT', region: 'BE', url: 'https://app.uat.btx.banqup.com/idm/l1?country=BE&partner=btx' },
+            { name: 'UAT', region: 'FR', url: 'https://app.uat.btx.jefacture.com/idm/l1?country=FR&partner=btx' },
+            { name: 'CVE', region: 'BE', url: 'https://app.cve.btx.banqup.com/idm/l1?country=BE&partner=btx' },
+            { name: 'PROD', region: 'BE', url: 'https://app.btx.banqup.com/idm/l1?country=BE&partner=btx' },
+            { name: 'PROD', region: 'FR', url: 'https://app.btx.jefacture.com/idm/l1?country=FR&partner=btx' },
+        ];
+
+        let autoRefreshInterval = null;
+        let corsErrorShown = false;
+
+        async function fetchVersion(env) {
+            try {
+                const response = await fetch(env.url, {
+                    method: 'GET',
+                    cache: 'no-cache',
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const html = await response.text();
+                const match = html.match(/idm\/(\d+\.\d+\.\d+)\//);
+
+                if (match && match[1]) {
+                    return { ...env, version: match[1], status: 'success', error: null };
+                } else {
+                    return { ...env, version: null, status: 'error', error: 'Version not found' };
+                }
+            } catch (error) {
+                if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+                    if (!corsErrorShown) {
+                        document.getElementById('corsNotice').style.display = 'block';
+                        corsErrorShown = true;
+                    }
+                    return { ...env, version: null, status: 'error', error: 'CORS blocked' };
+                }
+                return { ...env, version: null, status: 'error', error: error.message };
+            }
+        }
+
+        async function fetchAllVersions() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const statusMessage = document.getElementById('statusMessage');
+            const tableBody = document.getElementById('tableBody');
+
+            refreshBtn.disabled = true;
+            statusMessage.style.display = 'block';
+            statusMessage.className = 'status-message loading';
+            statusMessage.textContent = 'Fetching versions from all environments...';
+
+            tableBody.innerHTML = ENVIRONMENTS.map((env, idx) => `
+                <tr id="row-${idx}">
+                    <td class="env-name">${env.name}</td>
+                    <td>${env.region}</td>
+                    <td><div class="spinner"></div></td>
+                    <td class="status loading">Loading...</td>
+                </tr>
+            `).join('');
+
+            const results = await Promise.all(ENVIRONMENTS.map(fetchVersion));
+
+            results.forEach((result, idx) => {
+                const row = document.getElementById(`row-${idx}`);
+                const versionCell = row.children[2];
+                const statusCell = row.children[3];
+
+                if (result.status === 'success') {
+                    versionCell.innerHTML = `<span class="version">${result.version}</span>`;
+                    statusCell.innerHTML = '<span class="status success">✅ Success</span>';
+                } else {
+                    versionCell.textContent = 'N/A';
+                    statusCell.innerHTML = `<span class="status error">❌ ${result.error}</span>`;
+                }
+            });
+
+            const successCount = results.filter(r => r.status === 'success').length;
+            const totalCount = results.length;
+
+            if (successCount === totalCount) {
+                statusMessage.className = 'status-message success';
+                statusMessage.textContent = `✅ Successfully fetched all ${totalCount} versions`;
+            } else if (successCount > 0) {
+                statusMessage.className = 'status-message success';
+                statusMessage.textContent = `✅ Fetched ${successCount}/${totalCount} versions`;
+            } else {
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = `❌ Failed to fetch versions (check CORS policy)`;
+            }
+
+            document.getElementById('lastUpdated').textContent =
+                `Last updated: ${new Date().toLocaleString()}`;
+
+            refreshBtn.disabled = false;
+        }
+
+        function toggleAutoRefresh() {
+            const btn = document.getElementById('autoRefreshBtn');
+            const text = document.getElementById('autoRefreshText');
+
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = null;
+                text.textContent = 'Enable Auto-Refresh';
+                btn.style.background = '#667eea';
+            } else {
+                autoRefreshInterval = setInterval(fetchAllVersions, 60000); // Every 1 minute
+                text.textContent = 'Disable Auto-Refresh (1min)';
+                btn.style.background = '#28a745';
+                fetchAllVersions();
+            }
+        }
+
+        // Fetch on page load
+        window.addEventListener('load', fetchAllVersions);
+    </script>
+</body>
+</html>
